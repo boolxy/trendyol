@@ -1,0 +1,21 @@
+{
+    "name": "boolxy/trendyol",
+    "description": "The easiest way for using Trendyol APIs in PHP",
+    "type": "library",
+    "require": {
+        "ext-json": "^7.4",
+        "php": "^7.4",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "require-dev": {
+        "ext-mbstring": "^7.4",
+        "phpunit/phpunit": "^9.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "authors": [
+        {
+            "name": "Sezai Ozarslan",
+            "email": "sezai.ozarslan@gmail.com"
+        }
+    ]
+}
