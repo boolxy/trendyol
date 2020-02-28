@@ -5,7 +5,8 @@
     "require": {
         "ext-json": "^7.4",
         "php": "^7.4",
-        "guzzlehttp/guzzle": "^6.5"
+        "guzzlehttp/guzzle": "^6.5",
+        "ramsey/collection": "^1.0"
     },
     "require-dev": {
         "ext-mbstring": "^7.4",
@@ -17,5 +18,20 @@
             "name": "Sezai Ozarslan",
             "email": "sezai.ozarslan@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "BoolXY\\Trendyol\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BoolXY\\Trendyol\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always",
+        "check": "phpcs -p --standard=PSR2 --colors --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 src tests",
+        "fix": "phpcbf -p --standard=PSR2 --colors --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 src tests"
+    }
 }

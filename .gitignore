@@ -1,2 +1,7 @@
 /vendor/
 composer.lock
+phpunit.xml
+.idea
+org.eclipse*
+.project
+.buildpath
