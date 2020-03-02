@@ -9,7 +9,7 @@ use BoolXY\Trendyol\Services\ProductService;
 
 class Trendyol
 {
-    private Client $client;
+    private RequestManager $requestManager;
 
     /**
      * Trendyol constructor.
@@ -19,7 +19,9 @@ class Trendyol
      */
     public function __construct(string $user, string $pass, string $supplier_id)
     {
-        $this->client = new Client($user, $pass, $supplier_id);
+        $client = new Client($user, $pass, $supplier_id);
+
+        $this->requestManager = new RequestManager($client);
     }
 
     /**
@@ -38,7 +40,7 @@ class Trendyol
      */
     public function accountingService(): AccountingService
     {
-        return new AccountingService($this->client);
+        return new AccountingService($this->requestManager);
     }
 
     /**
@@ -46,7 +48,7 @@ class Trendyol
      */
     public function cancelService(): CancelService
     {
-        return new CancelService($this->client);
+        return new CancelService($this->requestManager);
     }
 
     /**
@@ -54,7 +56,7 @@ class Trendyol
      */
     public function orderService(): OrderService
     {
-        return new OrderService($this->client);
+        return new OrderService($this->requestManager);
     }
 
     /**
@@ -62,6 +64,6 @@ class Trendyol
      */
     public function productService(): ProductService
     {
-        return new ProductService($this->client);
+        return new ProductService($this->requestManager);
     }
 }

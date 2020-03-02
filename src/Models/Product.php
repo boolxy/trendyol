@@ -3,10 +3,9 @@
 
 namespace BoolXY\Trendyol\Models;
 
-use BoolXY\Trendyol\Collections\ProductAttributeCollection;
-use BoolXY\Trendyol\Collections\ProductImageCollection;
+use BoolXY\Trendyol\AbstractModel;
 
-class Product
+class Product extends AbstractModel
 {
 
     private string $barcode;
@@ -35,15 +34,15 @@ class Product
 
     private int $cargoCompanyId;
 
-    private ProductImageCollection $images;
+    private array $images;
 
     private int $vatRate;
 
-    private int $shipmentAddressId;
+    private ?int $shipmentAddressId = null;
 
-    private int $returningAddressId;
+    private ?int $returningAddressId = null;
 
-    private ProductAttributeCollection $attributes;
+    private array $attributes;
 
     /**
      * @return string
@@ -254,19 +253,19 @@ class Product
     }
 
     /**
-     * @return ProductImageCollection
+     * @return array
      */
-    public function getImages(): ProductImageCollection
+    public function getImages(): array
     {
         return $this->images;
     }
 
     /**
-     * @param ProductImageCollection $images
+     * @param array $image
      */
-    public function setImages(ProductImageCollection $images): void
+    public function addImage(array $image): void
     {
-        $this->images = $images;
+        $this->images[] = $image;
     }
 
     /**
@@ -318,19 +317,45 @@ class Product
     }
 
     /**
-     * @return ProductAttributeCollection
+     * @return array
      */
-    public function getAttributes(): ProductAttributeCollection
+    public function getAttributes(): array
     {
         return $this->attributes;
     }
 
     /**
-     * @param ProductAttributeCollection $attributes
+     * @param array $attribute
      */
-    public function setAttributes(ProductAttributeCollection $attributes): void
+    public function addAttribute(array $attribute): void
     {
-        $this->attributes = $attributes;
+        $this->attributes[] = $attribute;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function jsonSerialize()
+    {
+        return [
+            "barcode" => $this->barcode,
+            "title" => $this->title,
+            "productMainId" => $this->productMainId,
+            "brandId" => $this->brandId,
+            "categoryId" => $this->categoryId,
+            "quantity" => $this->quantity,
+            "stockCode" => $this->stockCode,
+            "dimensionalWeight" => $this->dimensionalWeight,
+            "description" => $this->description,
+            "currencyType" => $this->currencyType,
+            "listPrice" => $this->listPrice,
+            "salePrice" => $this->salePrice,
+            "cargoCompanyId" => $this->cargoCompanyId,
+            "images" => $this->images,
+            "vatRate" => $this->vatRate,
+            "shipmentAddressId" => $this->shipmentAddressId,
+            "returningAddressId" => $this->returningAddressId,
+            "attributes" => $this->attributes,
+        ];
+    }
 }
