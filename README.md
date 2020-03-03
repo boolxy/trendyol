@@ -14,6 +14,24 @@ composer require boolxy/trendyol
 
 ### Product Service
 
+#### Get brands
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getBrands();
+```
+
+#### Get brands by name
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getBrandsByName("TRENDYOL");
+```
+
 #### Create your own products on Trendyol
 
 ```php
@@ -34,34 +52,17 @@ use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\Collections\ProductCollection;
 
 $products = new ProductCollection();
-$products->add(new Product());
-$products->add(new Product());
-// ...
+$products
+    ->add(new Product())
+    ->add(new Product())
+    // ...
+    ->add(new Product());
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
     ->setProducts($products)
     ->create();
 ```
-
-#### Get brands
-```php
-use BoolXY\Trendyol\Trendyol;
-
-$results = Trendyol::create($user, $pass, $supplier_id)
-    ->productService()
-    ->getBrands();
-```
-
-#### Get brands by name
-```php
-use BoolXY\Trendyol\Trendyol;
-
-$results = Trendyol::create($user, $pass, $supplier_id)
-    ->productService()
-    ->getBrandsByName("TRENDYOL");
-```
-
 
 With reviewing the tests, you can learn more...
 
