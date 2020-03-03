@@ -41,7 +41,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getCategories();
 ```
 
-#### Get attributes
+#### Get attributes by categoryId
 ```php
 use BoolXY\Trendyol\Trendyol;
 
