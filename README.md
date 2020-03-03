@@ -45,24 +45,6 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     // ...
     ->create();
 ```
-or
-```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\Models\Product;
-use BoolXY\Trendyol\Collections\ProductCollection;
-
-$products = new ProductCollection();
-$products
-    ->add(new Product())
-    ->add(new Product())
-    // ...
-    ->add(new Product());
-
-$results = Trendyol::create($user, $pass, $supplier_id)
-    ->productService()
-    ->setProducts($products)
-    ->create();
-```
 
 With reviewing the tests, you can learn more...
 
