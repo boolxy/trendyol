@@ -70,4 +70,16 @@ class ProductServiceTest extends TestCase
         $this->assertIsArray($results);
         $this->assertTrue(count($results) > 0);
     }
+
+    /** @test */
+    public function testGetSuppliersAddresses()
+    {
+        $results = $this->trendyol->productService()->getSuppliersAddresses();
+
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("supplierAddresses", $results);
+        $this->assertObjectHasAttribute("defaultShipmentAddress", $results);
+        $this->assertObjectHasAttribute("defaultInvoiceAddress", $results);
+        $this->assertObjectHasAttribute("defaultReturningAddress", $results);
+    }
 }

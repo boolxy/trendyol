@@ -12,6 +12,7 @@ use BoolXY\Trendyol\Requests\ProductService\GetBrands;
 use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
 use BoolXY\Trendyol\Requests\ProductService\GetCategories;
 use BoolXY\Trendyol\Requests\ProductService\GetProviders;
+use BoolXY\Trendyol\Requests\ProductService\GetSuppliersAddresses;
 
 class ProductService extends AbstractService implements IService
 {
@@ -119,6 +120,20 @@ class ProductService extends AbstractService implements IService
     public function getProviders()
     {
         $request = GetProviders::create();
+
+        return $this->requestManager->process($request);
+    }
+
+    /**
+     * Get suppliers addresses
+     * @return mixed
+     */
+    public function getSuppliersAddresses()
+    {
+        $supplierId = $this->requestManager->getClient()->getSupplierId();
+        $request = GetSuppliersAddresses::create([
+            "supplierId" => $supplierId,
+        ]);
 
         return $this->requestManager->process($request);
     }

@@ -61,6 +61,15 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getProviders();
 ```
 
+#### Get suppliers addresses
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getSuppliersAddresses();
+```
+
 #### Create your own products on Trendyol
 
 ```php
