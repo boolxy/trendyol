@@ -8,6 +8,7 @@ use BoolXY\Trendyol\IService;
 use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
+use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
 
 class ProductService extends AbstractService implements IService
 {
@@ -26,7 +27,6 @@ class ProductService extends AbstractService implements IService
 
     /**
      * Add a product
-     *
      * @param Product $product
      * @return $this
      */
@@ -39,7 +39,6 @@ class ProductService extends AbstractService implements IService
 
     /**
      * Get your added product stack
-     *
      * @return ProductCollection
      */
     public function getProducts(): ProductCollection
@@ -57,16 +56,29 @@ class ProductService extends AbstractService implements IService
 
     /**
      * Get brands
-     *
      * @param int $page
      * @param int $size
-     * @return object
+     * @return mixed
      */
     public function getBrands(int $page = 1, int $size = 10)
     {
         $request = GetBrands::create([
             "page" => $page,
             "size" => $size,
+        ]);
+
+        return $this->requestManager->process($request);
+    }
+
+    /**
+     * Get brands by name
+     * @param string $name
+     * @return mixed
+     */
+    public function getBrandsByName(string $name)
+    {
+        $request = GetBrandsByName::create([
+            "name" => $name,
         ]);
 
         return $this->requestManager->process($request);

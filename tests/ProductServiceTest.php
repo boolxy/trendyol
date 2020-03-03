@@ -33,4 +33,12 @@ class ProductServiceTest extends TestCase
         $this->assertObjectHasAttribute("brands", $results);
         $this->assertCount(3, $results->brands);
     }
+
+    /** @test */
+    public function testGetBrandsByName()
+    {
+        $results = $this->trendyol->productService()->getBrandsByName("TRENDYOL");
+
+        $this->assertIsArray($results);
+    }
 }

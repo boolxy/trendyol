@@ -3,6 +3,7 @@
 namespace BoolXY\Trendyol;
 
 use GuzzleHttp\RequestOptions;
+use phpDocumentor\Reflection\Types\Mixed_;
 
 class RequestManager
 {
@@ -19,19 +20,16 @@ class RequestManager
 
     /**
      * Process the request
-     *
      * @param IRequest $request
-     * @return object
+     * @return mixed
      */
-    public function process(IRequest $request): object
+    public function process(IRequest $request)
     {
         $method = $request->getMethod();
-
         $path = $request->getPath();
-
         $data = $request->getData();
 
-        $result = $this->client->$method($path, [
+        $response = $this->client->$method($path, [
             RequestOptions::SYNCHRONOUS => false,
             RequestOptions::HEADERS => [
                 "Accept" => "application/json",
@@ -42,7 +40,7 @@ class RequestManager
             ],
         ]);
 
-        return json_decode((string) $result->getBody());
+        return json_decode((string) $response->getBody());
     }
 
     /**
