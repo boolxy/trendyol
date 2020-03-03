@@ -7,7 +7,19 @@ use BoolXY\Trendyol\IRequest;
 
 class GetBrands extends AbstractRequest implements IRequest
 {
-    protected string $method = self::METHOD_GET;
+    /**
+     * @inheritDoc
+     */
+    public function getMethod(): string
+    {
+        return self::METHOD_GET;
+    }
 
-    protected string $path = 'brands';
+    /**
+     * @inheritDoc
+     */
+    public function getPathPattern(): string
+    {
+        return 'brands?page=$page&size=$size';
+    }
 }

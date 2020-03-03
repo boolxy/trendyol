@@ -8,12 +8,22 @@ class RequestManager
 {
     private Client $client;
 
+    /**
+     * RequestManager constructor.
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
 
-    public function process(IRequest $request)
+    /**
+     * Process the request
+     *
+     * @param IRequest $request
+     * @return object
+     */
+    public function process(IRequest $request): object
     {
         $method = $request->getMethod();
 
@@ -33,5 +43,13 @@ class RequestManager
         ]);
 
         return json_decode((string) $result->getBody());
+    }
+
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
+    {
+        return $this->client;
     }
 }

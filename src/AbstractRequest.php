@@ -25,69 +25,30 @@ abstract class AbstractRequest implements IRequest
     }
 
     /**
-     * @return mixed
-     */
-    public function getMethod(): string
-    {
-        return $this->method;
-    }
-
-    /**
-     * @param mixed $method
-     */
-    public function setMethod(string $method): void
-    {
-        $this->method = $method;
-    }
-
-    /**
-     * @return mixed
+     * Returns the path after then replace the variables
+     * @return string
      */
     public function getPath(): string
     {
         if ($this->getMethod() === self::METHOD_GET) {
-            $path = [];
 
+            $pattern = $this->getPathPattern();
             $data = $this->getData();
-
-            foreach (explode("/", $this->path) as $item) {
-                if (substr($item, 0, 1) === '$') {
-                    $param = substr($item, 1);
-                    if (array_key_exists($param, $data)) {
-                        $path[] = $data[$param];
-                    }
-                } else {
-                    $path[] = $item;
-                }
+            foreach (array_keys($data) as $key) {
+                $pattern = preg_replace('/\$'.$key.'/', urlencode($data[$key]), $pattern);
             }
 
-            return join('/', $path);
+            return $pattern;
         }
 
         return $this->path;
     }
 
     /**
-     * @param mixed $path
-     */
-    public function setPath(string $path): void
-    {
-        $this->path = $path;
-    }
-
-    /**
-     * @return mixed
+     * @return array
      */
     public function getData(): array
     {
         return $this->data;
-    }
-
-    /**
-     * @param mixed $data
-     */
-    public function setData(array $data): void
-    {
-        $this->data = $data;
     }
 }

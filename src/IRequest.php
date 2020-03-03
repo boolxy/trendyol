@@ -21,33 +21,26 @@ interface IRequest
     public function __construct(array $data = []);
 
     /**
+     * Returns the method
      * @return string
      */
     public function getMethod(): string;
 
     /**
-     * @param string $method
-     */
-    public function setMethod(string $method): void;
-
-    /**
+     * Returns the path
      * @return string
      */
     public function getPath(): string;
 
     /**
-     * @param string $path
+     * Returns the path pattern
+     * @return string
      */
-    public function setPath(string $path): void;
+    public function getPathPattern(): string;
 
     /**
+     * Returns the data
      * @return array
      */
     public function getData(): array;
-
-    /**
-     * @param array $data
-     * @return void
-     */
-    public function setData(array $data): void;
 }

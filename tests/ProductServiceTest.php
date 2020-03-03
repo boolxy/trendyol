@@ -23,4 +23,14 @@ class ProductServiceTest extends TestCase
         $this->assertInstanceOf(ProductCollection::class, $products);
         $this->assertCount(2, $products);
     }
+
+    /** @test */
+    public function testGetBrands()
+    {
+        $results = $this->trendyol->productService()->getBrands(1, 3);
+
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("brands", $results);
+        $this->assertCount(3, $results->brands);
+    }
 }
