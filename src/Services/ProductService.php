@@ -8,6 +8,7 @@ use BoolXY\Trendyol\IService;
 use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
+use BoolXY\Trendyol\Requests\ProductService\GetBatchRequestResult;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
 use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
 use BoolXY\Trendyol\Requests\ProductService\GetCategories;
@@ -133,6 +134,23 @@ class ProductService extends AbstractService implements IService
         $supplierId = $this->requestManager->getClient()->getSupplierId();
         $request = GetSuppliersAddresses::create([
             "supplierId" => $supplierId,
+        ]);
+
+        return $this->requestManager->process($request);
+    }
+
+    /**
+     * Get batch request result
+     * for queues like product creation or updating price and inventory
+     * @param string $batchRequestId
+     * @return mixed
+     */
+    public function getBatchRequestResult(string $batchRequestId)
+    {
+        $supplierId = $this->requestManager->getClient()->getSupplierId();
+        $request = GetBatchRequestResult::create([
+            "supplierId" => $supplierId,
+            "batchRequestId" => $batchRequestId,
         ]);
 
         return $this->requestManager->process($request);

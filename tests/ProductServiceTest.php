@@ -82,4 +82,15 @@ class ProductServiceTest extends TestCase
         $this->assertObjectHasAttribute("defaultInvoiceAddress", $results);
         $this->assertObjectHasAttribute("defaultReturningAddress", $results);
     }
+
+    /** @test */
+    public function testGetBatchRequestResult()
+    {
+        $batchRequestId = '5631d1a1-ec81-496f-9407-99876554433-1529820717'; // Example
+        $results = $this->trendyol->productService()->getBatchRequestResult($batchRequestId);
+
+        $this->assertObjectHasAttribute("batchRequestId", $results);
+        $this->assertObjectHasAttribute("items", $results);
+        $this->assertIsArray($results->items);
+    }
 }

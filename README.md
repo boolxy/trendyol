@@ -70,6 +70,17 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getSuppliersAddresses();
 ```
 
+#### Get batch request result
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$batchRequestId = '5631d1a1-ec81-496f-9407-99876554433-1529820717';
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getBatchRequestResult($batchRequestId);
+```
+
 #### Create your own products on Trendyol (This is not ready yet)
 
 ```php
