@@ -51,4 +51,14 @@ class ProductServiceTest extends TestCase
         $this->assertIsObject($results);
         $this->assertObjectHasAttribute("categories", $results);
     }
+
+    /** @test */
+    public function testGetAttributes()
+    {
+        $results = $this->trendyol->productService()->getAttributes(387);
+
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("categoryAttributes", $results);
+        $this->assertTrue(count($results->categoryAttributes) > 0);
+    }
 }

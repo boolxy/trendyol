@@ -41,6 +41,17 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getCategories();
 ```
 
+#### Get attributes
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$categoryId = 387;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getAttributes($categoryId);
+```
+
 #### Create your own products on Trendyol
 
 ```php

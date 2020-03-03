@@ -7,6 +7,7 @@ use BoolXY\Trendyol\Collections\ProductCollection;
 use BoolXY\Trendyol\IService;
 use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\RequestManager;
+use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
 use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
 use BoolXY\Trendyol\Requests\ProductService\GetCategories;
@@ -88,6 +89,15 @@ class ProductService extends AbstractService implements IService
     public function getCategories()
     {
         $request = GetCategories::create();
+
+        return $this->requestManager->process($request);
+    }
+
+    public function getAttributes(int $categoryId)
+    {
+        $request = GetAttributes::create([
+            "categoryId" => $categoryId,
+        ]);
 
         return $this->requestManager->process($request);
     }
