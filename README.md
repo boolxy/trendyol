@@ -53,6 +53,15 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getBrands();
 ```
 
+#### Get brands by name
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getBrandsByName("TRENDYOL");
+```
+
 
 With reviewing the tests, you can learn more...
 
