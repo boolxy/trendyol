@@ -9,6 +9,7 @@ use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
 use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
+use BoolXY\Trendyol\Requests\ProductService\GetCategories;
 
 class ProductService extends AbstractService implements IService
 {
@@ -80,6 +81,13 @@ class ProductService extends AbstractService implements IService
         $request = GetBrandsByName::create([
             "name" => $name,
         ]);
+
+        return $this->requestManager->process($request);
+    }
+
+    public function getCategories()
+    {
+        $request = GetCategories::create();
 
         return $this->requestManager->process($request);
     }

@@ -40,5 +40,15 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->getBrandsByName("TRENDYOL");
 
         $this->assertIsArray($results);
+        $this->assertTrue(count($results) > 0);
+    }
+
+    /** @test */
+    public function testGetCategories()
+    {
+        $results = $this->trendyol->productService()->getCategories();
+
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("categories", $results);
     }
 }

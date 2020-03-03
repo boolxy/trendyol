@@ -32,6 +32,15 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getBrandsByName("TRENDYOL");
 ```
 
+#### Get categories
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getCategories();
+```
+
 #### Create your own products on Trendyol
 
 ```php
