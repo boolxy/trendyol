@@ -70,7 +70,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getSuppliersAddresses();
 ```
 
-#### Create your own products on Trendyol
+#### Create your own products on Trendyol (This is not ready yet)
 
 ```php
 use BoolXY\Trendyol\Trendyol;
