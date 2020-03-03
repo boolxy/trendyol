@@ -11,6 +11,7 @@ use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
 use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
 use BoolXY\Trendyol\Requests\ProductService\GetCategories;
+use BoolXY\Trendyol\Requests\ProductService\GetProviders;
 
 class ProductService extends AbstractService implements IService
 {
@@ -86,6 +87,10 @@ class ProductService extends AbstractService implements IService
         return $this->requestManager->process($request);
     }
 
+    /**
+     * Get categories
+     * @return mixed
+     */
     public function getCategories()
     {
         $request = GetCategories::create();
@@ -93,11 +98,27 @@ class ProductService extends AbstractService implements IService
         return $this->requestManager->process($request);
     }
 
+    /**
+     * Get attributes by categoryId
+     * @param int $categoryId
+     * @return mixed
+     */
     public function getAttributes(int $categoryId)
     {
         $request = GetAttributes::create([
             "categoryId" => $categoryId,
         ]);
+
+        return $this->requestManager->process($request);
+    }
+
+    /**
+     * Get shipment providers
+     * @return mixed
+     */
+    public function getProviders()
+    {
+        $request = GetProviders::create();
 
         return $this->requestManager->process($request);
     }

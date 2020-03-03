@@ -61,4 +61,13 @@ class ProductServiceTest extends TestCase
         $this->assertObjectHasAttribute("categoryAttributes", $results);
         $this->assertTrue(count($results->categoryAttributes) > 0);
     }
+
+    /** @test */
+    public function testGetProviders()
+    {
+        $results = $this->trendyol->productService()->getProviders();
+
+        $this->assertIsArray($results);
+        $this->assertTrue(count($results) > 0);
+    }
 }
