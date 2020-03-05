@@ -100,7 +100,7 @@ $parameters = ParameterFactory::getProductsParameters()
     ->barcode('XXX')
     ->page(1)
     ->size(50)
-    //...
+    // ...
     ;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
