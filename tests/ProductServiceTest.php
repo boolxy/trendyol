@@ -2,30 +2,10 @@
 
 namespace BoolXY\Trendyol\Tests;
 
-use BoolXY\Trendyol\Collections\ProductCollection;
 use BoolXY\Trendyol\ParameterFactory;
-use BoolXY\Trendyol\Trendyol;
 
 class ProductServiceTest extends TestCase
 {
-    /** @test */
-    public function testProductsCanBeAdded()
-    {
-        $service = $this->trendyol->productService();
-
-        $product1 = $this->getTestProduct1();
-        $product2 = $this->getTestProduct1Variation();
-
-        $products = $service
-            ->addProduct($product1)
-            ->addProduct($product2)
-            ->getStackProducts();
-
-        $this->assertNotNull($products);
-        $this->assertInstanceOf(ProductCollection::class, $products);
-        $this->assertCount(2, $products);
-    }
-
     /** @test */
     public function testGetBrands()
     {
@@ -120,5 +100,11 @@ class ProductServiceTest extends TestCase
 
         $this->assertIsObject($results);
         $this->assertObjectHasAttribute("batchRequestId", $results);
+    }
+
+    /** @test */
+    public function testCreateProducts()
+    {
+        // TODO:
     }
 }

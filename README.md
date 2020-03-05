@@ -138,18 +138,35 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->updatePriceAndInventory($parameters);
 ```
 
-#### Create your own products on Trendyol (This is not ready yet)
-
+#### Create your own products on Trendyol (Not tested yet)
 ```php
 use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\ParameterFactory;
 use BoolXY\Trendyol\Models\Product;
+
+$product1 = Product::create()
+    ->setBarcode("barkod-1234")
+    ->setTitle("Bebek Takımı Pamuk")
+    ->setProductMainId("1234BT")
+    ->setBrandId(1791)
+    ->setCategoryId(411)
+    ->setQuantity(100)
+    // ...
+    ;
+
+$items = [
+    $product1,
+    // ...
+];
+
+$parameters = ParameterFactory::createProductsParameters();
+foreach($items as $item) {
+    $parameters->addProduct($item);
+}
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
-    ->addProduct(new Product($attributes))
-    ->addProduct(new Product($attributes))
-    // ...
-    ->create();
+    ->createProducts($parameters);
 ```
 
 With reviewing the tests, you can learn more...

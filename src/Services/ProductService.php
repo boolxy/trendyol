@@ -3,12 +3,11 @@
 namespace BoolXY\Trendyol\Services;
 
 use BoolXY\Trendyol\AbstractService;
-use BoolXY\Trendyol\Collections\ProductCollection;
 use BoolXY\Trendyol\IParameters;
 use BoolXY\Trendyol\IService;
-use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\ParameterFactory;
 use BoolXY\Trendyol\RequestManager;
+use BoolXY\Trendyol\Requests\ProductService\CreateProducts;
 use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
 use BoolXY\Trendyol\Requests\ProductService\GetBatchRequestResult;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
@@ -21,8 +20,6 @@ use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 
 class ProductService extends AbstractService implements IService
 {
-    private ?ProductCollection $products = null;
-
     /**
      * ProductService constructor.
      * @param RequestManager $requestManager
@@ -30,38 +27,6 @@ class ProductService extends AbstractService implements IService
     public function __construct(RequestManager $requestManager)
     {
         parent::__construct($requestManager);
-
-        $this->products = new ProductCollection();
-    }
-
-    /**
-     * Add a product for sending to Trendyol
-     * @param Product $product
-     * @return $this
-     */
-    public function addProduct(Product $product): self
-    {
-        $this->products->add($product);
-
-        return $this;
-    }
-
-    /**
-     * Get your added product from the stack of object
-     * @return ProductCollection
-     */
-    public function getStackProducts(): ProductCollection
-    {
-        return $this->products;
-    }
-
-    /**
-     * Set products for sending to Trendyol
-     * @param ProductCollection $products
-     */
-    public function setProducts(ProductCollection $products): void
-    {
-        $this->products = $products;
     }
 
     /**
@@ -201,8 +166,19 @@ class ProductService extends AbstractService implements IService
         return $this->requestManager->process($request);
     }
 
-    public function create()
+    public function createProducts(IParameters $parameters = null)
     {
-        // TODO: Create the products on Trendyol
+        if (is_null($parameters)) {
+            $parameters = ParameterFactory::createProductsParameters();
+        }
+
+        if (!$parameters->has('supplierId')) {
+            $supplierId = $this->requestManager->getClient()->getSupplierId();
+            $parameters->supplierId($supplierId);
+        }
+
+        $request = CreateProducts::create($parameters->toArray());
+
+        return $this->requestManager->process($request);
     }
 }

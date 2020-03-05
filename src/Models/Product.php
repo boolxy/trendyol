@@ -1,13 +1,11 @@
 <?php
 
-
 namespace BoolXY\Trendyol\Models;
 
 use BoolXY\Trendyol\AbstractModel;
 
 class Product extends AbstractModel
 {
-
     private string $barcode;
 
     private string $title;
@@ -44,6 +42,11 @@ class Product extends AbstractModel
 
     private array $attributes;
 
+    public static function create()
+    {
+        return new static();
+    }
+
     /**
      * @return string
      */
@@ -54,10 +57,13 @@ class Product extends AbstractModel
 
     /**
      * @param string $barcode
+     * @return Product
      */
-    public function setBarcode(string $barcode): void
+    public function setBarcode(string $barcode): self
     {
         $this->barcode = $barcode;
+
+        return $this;
     }
 
     /**
@@ -70,10 +76,13 @@ class Product extends AbstractModel
 
     /**
      * @param string $title
+     * @return Product
      */
-    public function setTitle(string $title): void
+    public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
     /**
@@ -86,10 +95,13 @@ class Product extends AbstractModel
 
     /**
      * @param string $productMainId
+     * @return Product
      */
-    public function setProductMainId(string $productMainId): void
+    public function setProductMainId(string $productMainId): self
     {
         $this->productMainId = $productMainId;
+
+        return $this;
     }
 
     /**
@@ -102,10 +114,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $brandId
+     * @return Product
      */
-    public function setBrandId(int $brandId): void
+    public function setBrandId(int $brandId): self
     {
         $this->brandId = $brandId;
+
+        return $this;
     }
 
     /**
@@ -118,10 +133,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $categoryId
+     * @return Product
      */
-    public function setCategoryId(int $categoryId): void
+    public function setCategoryId(int $categoryId): self
     {
         $this->categoryId = $categoryId;
+
+        return $this;
     }
 
     /**
@@ -134,10 +152,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $quantity
+     * @return Product
      */
-    public function setQuantity(int $quantity): void
+    public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
     }
 
     /**
@@ -150,10 +171,13 @@ class Product extends AbstractModel
 
     /**
      * @param string $stockCode
+     * @return Product
      */
-    public function setStockCode(string $stockCode): void
+    public function setStockCode(string $stockCode): self
     {
         $this->stockCode = $stockCode;
+
+        return $this;
     }
 
     /**
@@ -166,10 +190,13 @@ class Product extends AbstractModel
 
     /**
      * @param float $dimensionalWeight
+     * @return Product
      */
-    public function setDimensionalWeight(float $dimensionalWeight): void
+    public function setDimensionalWeight(float $dimensionalWeight): self
     {
         $this->dimensionalWeight = $dimensionalWeight;
+
+        return $this;
     }
 
     /**
@@ -182,10 +209,13 @@ class Product extends AbstractModel
 
     /**
      * @param string $description
+     * @return Product
      */
-    public function setDescription(string $description): void
+    public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -198,10 +228,13 @@ class Product extends AbstractModel
 
     /**
      * @param string $currencyType
+     * @return Product
      */
-    public function setCurrencyType(string $currencyType): void
+    public function setCurrencyType(string $currencyType): self
     {
         $this->currencyType = $currencyType;
+
+        return $this;
     }
 
     /**
@@ -214,10 +247,13 @@ class Product extends AbstractModel
 
     /**
      * @param float $listPrice
+     * @return Product
      */
-    public function setListPrice(float $listPrice): void
+    public function setListPrice(float $listPrice): self
     {
         $this->listPrice = $listPrice;
+
+        return $this;
     }
 
     /**
@@ -230,10 +266,13 @@ class Product extends AbstractModel
 
     /**
      * @param float $salePrice
+     * @return Product
      */
-    public function setSalePrice(float $salePrice): void
+    public function setSalePrice(float $salePrice): self
     {
         $this->salePrice = $salePrice;
+
+        return $this;
     }
 
     /**
@@ -246,10 +285,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $cargoCompanyId
+     * @return Product
      */
-    public function setCargoCompanyId(int $cargoCompanyId): void
+    public function setCargoCompanyId(int $cargoCompanyId): self
     {
         $this->cargoCompanyId = $cargoCompanyId;
+
+        return $this;
     }
 
     /**
@@ -278,10 +320,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $vatRate
+     * @return Product
      */
-    public function setVatRate(int $vatRate): void
+    public function setVatRate(int $vatRate): self
     {
         $this->vatRate = $vatRate;
+
+        return $this;
     }
 
     /**
@@ -294,10 +339,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $shipmentAddressId
+     * @return Product
      */
-    public function setShipmentAddressId(int $shipmentAddressId): void
+    public function setShipmentAddressId(int $shipmentAddressId): self
     {
         $this->shipmentAddressId = $shipmentAddressId;
+
+        return $this;
     }
 
     /**
@@ -310,10 +358,13 @@ class Product extends AbstractModel
 
     /**
      * @param int $returningAddressId
+     * @return Product
      */
-    public function setReturningAddressId(int $returningAddressId): void
+    public function setReturningAddressId(int $returningAddressId): self
     {
         $this->returningAddressId = $returningAddressId;
+
+        return $this;
     }
 
     /**
