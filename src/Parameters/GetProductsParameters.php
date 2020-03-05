@@ -5,7 +5,7 @@ namespace BoolXY\Trendyol\Parameters;
 use BoolXY\Trendyol\AbstractParameters;
 use BoolXY\Trendyol\IParameters;
 
-class ProductParameters extends AbstractParameters implements IParameters
+class GetProductsParameters extends AbstractParameters implements IParameters
 {
     /**
      * @param bool $is
@@ -80,17 +80,6 @@ class ProductParameters extends AbstractParameters implements IParameters
     public function size(int $size): self
     {
         $this->data["size"] = $size;
-
-        return $this;
-    }
-
-    /**
-     * @param int $supplierId
-     * @return $this
-     */
-    public function supplierId(int $supplierId): self
-    {
-        $this->data["supplierId"] = $supplierId;
 
         return $this;
     }

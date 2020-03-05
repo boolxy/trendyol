@@ -31,29 +31,30 @@ abstract class AbstractRequest implements IRequest
     public function getPath(): string
     {
         $path = $this->getPathPattern();
-        if ($this->getMethod() === self::METHOD_GET) {
-            $path = $this->replaceVariablesWithValues($path);
-            $path = $this->removeNonSelectedVariables($path);
-        }
+        $path = $this->replaceVariablesWithValues($path);
+        $path = $this->removeNonSelectedVariables($path);
 
         return $path;
     }
 
     /**
+     * @param string $path
      * @return string
      */
     private function replaceVariablesWithValues(string $path): string
     {
         $data = $this->getData();
         foreach (array_keys($data) as $key) {
-            $path = preg_replace('/\$'.$key.'/', urlencode($data[$key]), $path);
+            if (!is_array($data[$key])) {
+                $path = preg_replace('/\$'.$key.'/', urlencode($data[$key]), $path);
+            }
         }
 
         return $path;
     }
 
     /**
-     * @param string $queryString
+     * @param string $path
      * @return string
      */
     private function removeNonSelectedVariables(string $path): string

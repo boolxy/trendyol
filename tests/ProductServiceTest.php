@@ -3,7 +3,7 @@
 namespace BoolXY\Trendyol\Tests;
 
 use BoolXY\Trendyol\Collections\ProductCollection;
-use BoolXY\Trendyol\ParameterBuilder;
+use BoolXY\Trendyol\ParameterFactory;
 use BoolXY\Trendyol\Trendyol;
 
 class ProductServiceTest extends TestCase
@@ -108,5 +108,17 @@ class ProductServiceTest extends TestCase
         $this->assertObjectHasAttribute("size", $results);
         $this->assertObjectHasAttribute("content", $results);
         $this->assertIsArray($results->content);
+    }
+
+    /** @test */
+    public function testUpdatePriceAndInventory()
+    {
+        $parameters = ParameterFactory::updatePriceAndInventoryParameters()
+            ->addItem("8680000000", 100, 112.85, 113.85);
+
+        $results = $this->trendyol->productService()->updatePriceAndInventory($parameters);
+
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("batchRequestId", $results);
     }
 }

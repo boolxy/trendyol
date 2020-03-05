@@ -22,4 +22,15 @@ abstract class AbstractParameters implements IParameters
     {
         return isset($this->data[$key]);
     }
+
+    /**
+     * @param int $supplierId
+     * @return $this
+     */
+    public function supplierId(int $supplierId): self
+    {
+        $this->data["supplierId"] = $supplierId;
+
+        return $this;
+    }
 }

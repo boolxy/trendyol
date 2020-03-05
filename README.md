@@ -91,11 +91,11 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 with filters:
 ```php
-use BoolXY\Trendyol\Trendyol;                             
+use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\ParameterFactory;                             
 use BoolXY\Trendyol\Enums\DataQueryType;
 
-$parameters = Trendyol::parameterBuilder()
-    ->productParameters()
+$parameters = ParameterFactory::getProductsParameters()
     ->dataQueryType(DataQueryType::LAST_MODIFIED_DATE)
     ->barcode('XXX')
     ->page(1)
@@ -106,6 +106,26 @@ $parameters = Trendyol::parameterBuilder()
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
     ->getProducts($parameters);
+```
+
+#### Update price and inventory
+```php
+use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\ParameterFactory;                             
+
+$barcode = "8680000000";
+$quantity = 100;
+$salePrice = 112.85;
+$listPrice = 113.85;
+
+$parameters = ParameterFactory::updatePriceAndInventoryParameters()
+    ->addItem($barcode, $quantity, $salePrice, $listPrice)
+    //...
+    ;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->updatePriceAndInventory($parameters);
 ```
 
 #### Create your own products on Trendyol (This is not ready yet)

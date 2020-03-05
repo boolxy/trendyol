@@ -66,12 +66,4 @@ class Trendyol
     {
         return new ProductService($this->requestManager);
     }
-
-    /**
-     * @return ParameterBuilder
-     */
-    public static function parameterBuilder(): ParameterBuilder
-    {
-        return new ParameterBuilder();
-    }
 }

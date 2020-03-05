@@ -7,6 +7,7 @@ use BoolXY\Trendyol\Collections\ProductCollection;
 use BoolXY\Trendyol\IParameters;
 use BoolXY\Trendyol\IService;
 use BoolXY\Trendyol\Models\Product;
+use BoolXY\Trendyol\ParameterFactory;
 use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
 use BoolXY\Trendyol\Requests\ProductService\GetBatchRequestResult;
@@ -16,7 +17,7 @@ use BoolXY\Trendyol\Requests\ProductService\GetCategories;
 use BoolXY\Trendyol\Requests\ProductService\GetProducts;
 use BoolXY\Trendyol\Requests\ProductService\GetProviders;
 use BoolXY\Trendyol\Requests\ProductService\GetSuppliersAddresses;
-use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 
 class ProductService extends AbstractService implements IService
 {
@@ -167,7 +168,7 @@ class ProductService extends AbstractService implements IService
     public function getProducts(IParameters $parameters = null)
     {
         if (is_null($parameters)) {
-            $parameters = Trendyol::parameterBuilder()->productParameters();
+            $parameters = ParameterFactory::getProductsParameters();
         }
 
         if (!$parameters->has('supplierId')) {
@@ -176,6 +177,26 @@ class ProductService extends AbstractService implements IService
         }
 
         $request = GetProducts::create($parameters->toArray());
+
+        return $this->requestManager->process($request);
+    }
+
+    /**
+     * @param IParameters|null $parameters
+     * @return mixed
+     */
+    public function updatePriceAndInventory(IParameters $parameters = null)
+    {
+        if (is_null($parameters)) {
+            $parameters = ParameterFactory::updatePriceAndInventoryParameters();
+        }
+
+        if (!$parameters->has('supplierId')) {
+            $supplierId = $this->requestManager->getClient()->getSupplierId();
+            $parameters->supplierId($supplierId);
+        }
+
+        $request = UpdatePriceAndInventory::create($parameters->toArray());
 
         return $this->requestManager->process($request);
     }
