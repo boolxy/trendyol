@@ -113,15 +113,25 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 use BoolXY\Trendyol\Trendyol;
 use BoolXY\Trendyol\ParameterFactory;                             
 
-$barcode = "8680000000";
-$quantity = 100;
-$salePrice = 112.85;
-$listPrice = 113.85;
+$items = [
+    [
+        "barcode" => "8680000000",
+        "quantity" => 100,
+        "salePrice" => 112.85,
+        "listPrice" => 113.85, 
+    ],
+    // ...
+];
 
-$parameters = ParameterFactory::updatePriceAndInventoryParameters()
-    ->addItem($barcode, $quantity, $salePrice, $listPrice)
-    //...
-    ;
+$parameters = ParameterFactory::updatePriceAndInventoryParameters();
+foreach($items as $item) {
+    $parameters->addItem(
+        $item["barcode"],
+        $item["quantity"],
+        $item["salePrice"],
+        $item["listPrice"]
+    );
+}
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
