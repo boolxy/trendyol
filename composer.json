@@ -6,7 +6,8 @@
         "ext-json": "^7.4",
         "php": "^7.4",
         "guzzlehttp/guzzle": "^6.5",
-        "ramsey/collection": "^1.0"
+        "ramsey/collection": "^1.0",
+        "ext-spltype": "*"
     },
     "require-dev": {
         "ext-mbstring": "^7.4",

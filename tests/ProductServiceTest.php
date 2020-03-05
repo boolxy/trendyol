@@ -3,6 +3,8 @@
 namespace BoolXY\Trendyol\Tests;
 
 use BoolXY\Trendyol\Collections\ProductCollection;
+use BoolXY\Trendyol\ParameterBuilder;
+use BoolXY\Trendyol\Trendyol;
 
 class ProductServiceTest extends TestCase
 {
@@ -17,7 +19,7 @@ class ProductServiceTest extends TestCase
         $products = $service
             ->addProduct($product1)
             ->addProduct($product2)
-            ->getProducts();
+            ->getStackProducts();
 
         $this->assertNotNull($products);
         $this->assertInstanceOf(ProductCollection::class, $products);
@@ -92,5 +94,19 @@ class ProductServiceTest extends TestCase
         $this->assertObjectHasAttribute("batchRequestId", $results);
         $this->assertObjectHasAttribute("items", $results);
         $this->assertIsArray($results->items);
+    }
+
+    /** @test */
+    public function testGetProducts()
+    {
+        $results = $this->trendyol->productService()->getProducts();
+
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("totalElements", $results);
+        $this->assertObjectHasAttribute("totalPages", $results);
+        $this->assertObjectHasAttribute("page", $results);
+        $this->assertObjectHasAttribute("size", $results);
+        $this->assertObjectHasAttribute("content", $results);
+        $this->assertIsArray($results->content);
     }
 }

@@ -81,6 +81,33 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->getBatchRequestResult($batchRequestId);
 ```
 
+#### Get products
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getProducts();
+```
+with filters:
+```php
+use BoolXY\Trendyol\Trendyol;                             
+use BoolXY\Trendyol\Enums\DataQueryType;
+
+$parameters = Trendyol::parameterBuilder()
+    ->productParameters()
+    ->dataQueryType(DataQueryType::LAST_MODIFIED_DATE)
+    ->barcode('XXX')
+    ->page(1)
+    ->size(50)
+    //...
+    ;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->getProducts($parameters);
+```
+
 #### Create your own products on Trendyol (This is not ready yet)
 
 ```php
