@@ -9,6 +9,17 @@ use BoolXY\Trendyol\Requests\ProductService\GetProducts;
 class GetProductsRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
+     * @return GetProducts
+     */
+    protected function getRequest(): GetProducts
+    {
+        return GetProducts::create()
+            ->setQueryParams([
+                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            ]);
+    }
+
+    /**
      * @param bool $is
      * @return $this
      */
@@ -91,13 +102,5 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
     public function get()
     {
         return parent::process();
-    }
-
-    public function getRequest(): GetProducts
-    {
-        return GetProducts::create()
-            ->setQueryParams([
-                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            ]);
     }
 }

@@ -135,35 +135,29 @@ foreach($items as $item) {
 $results = $service->update();
 ```
 
-#### Create your own products on Trendyol (Not tested yet)
+#### Create your own products on Trendyol
 ```php
 use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\ParameterFactory;
 use BoolXY\Trendyol\Models\Product;
 
-$product1 = Product::create()
-    ->setBarcode("barkod-1234")
-    ->setTitle("Bebek Takımı Pamuk")
-    ->setProductMainId("1234BT")
-    ->setBrandId(1791)
-    ->setCategoryId(411)
-    ->setQuantity(100)
-    // ...
-    ;
+$attributes = [ /* ... */ ];
+
+$product1 = new Product($attributes);
 
 $items = [
     $product1,
     // ...
 ];
 
-$parameters = ParameterFactory::createProductsParameters();
+$service = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->creatingProducts();
+
 foreach($items as $item) {
-    $parameters->addProduct($item);
+    $service->addProduct($item);
 }
 
-$results = Trendyol::create($user, $pass, $supplier_id)
-    ->productService()
-    ->createProducts($parameters);
+$service->create();
 ```
 
 With reviewing the tests, you can learn more...

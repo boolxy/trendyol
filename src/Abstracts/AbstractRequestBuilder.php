@@ -2,6 +2,7 @@
 
 namespace BoolXY\Trendyol\Abstracts;
 
+use BoolXY\Trendyol\Interfaces\IRequest;
 use BoolXY\Trendyol\RequestManager;
 
 class AbstractRequestBuilder
@@ -18,5 +19,13 @@ class AbstractRequestBuilder
     protected function process()
     {
         return $this->requestManager->process($this->getRequest()->setData($this->data));
+    }
+
+    /**
+     * Override this
+     * @return IRequest
+     */
+    protected function getRequest(): IRequest
+    {
     }
 }

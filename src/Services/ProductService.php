@@ -3,6 +3,7 @@
 namespace BoolXY\Trendyol\Services;
 
 use BoolXY\Trendyol\Abstracts\AbstractService;
+use BoolXY\Trendyol\Builders\CreateProductsRequestBuilder;
 use BoolXY\Trendyol\Builders\GetProductsRequestBuilder;
 use BoolXY\Trendyol\Builders\UpdatePriceAndInventoryRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IParameters;
@@ -149,21 +150,11 @@ class ProductService extends AbstractService implements IService
         return new UpdatePriceAndInventoryRequestBuilder($this->requestManager);
     }
 
-//    public function createProducts(IParameters $parameters = null)
-//    {
-//        if (is_null($parameters)) {
-//            $parameters = ParameterFactory::createProductsParameters();
-//        }
-//
-//        if (!$parameters->has('supplierId')) {
-//            $supplierId = $this->requestManager->getClient()->getSupplierId();
-//            $parameters->supplierId($supplierId);
-//        }
-//
-//        var_dump($parameters->get());
-//
-//        $request = CreateProducts::create($parameters->get());
-//
-//        return $this->requestManager->process($request);
-//    }
+    /**
+     * @return CreateProductsRequestBuilder
+     */
+    public function creatingProducts(): CreateProductsRequestBuilder
+    {
+        return new CreateProductsRequestBuilder($this->requestManager);
+    }
 }

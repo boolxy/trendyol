@@ -9,8 +9,15 @@ abstract class AbstractModel implements IModel
 {
     use TJsonable;
 
-    public static function create()
+    public function __construct(array $attributes = [])
     {
-        return new static();
+        foreach ($attributes as $key => $value) {
+            $this->{$key} = $value;
+        }
+    }
+
+    public static function create(array $attributes = [])
+    {
+        return new static($attributes);
     }
 }

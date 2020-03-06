@@ -9,6 +9,17 @@ use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
+     * @return UpdatePriceAndInventory
+     */
+    protected function getRequest(): UpdatePriceAndInventory
+    {
+        return UpdatePriceAndInventory::create()
+            ->setQueryParams([
+                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            ]);
+    }
+
+    /**
      * @param string $barcode
      * @param int $quantity
      * @param float $salePrice
@@ -33,13 +44,5 @@ class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder imple
     public function update()
     {
         return $this->process();
-    }
-
-    public function getRequest(): UpdatePriceAndInventory
-    {
-        return UpdatePriceAndInventory::create()
-            ->setQueryParams([
-                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            ]);
     }
 }

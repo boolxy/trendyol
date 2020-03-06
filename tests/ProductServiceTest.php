@@ -2,9 +2,6 @@
 
 namespace BoolXY\Trendyol\Tests;
 
-use BoolXY\Trendyol\Models\Product;
-use BoolXY\Trendyol\ParameterFactory;
-
 class ProductServiceTest extends TestCase
 {
     /** @test */
@@ -117,11 +114,15 @@ class ProductServiceTest extends TestCase
         $this->assertObjectHasAttribute("batchRequestId", $results);
     }
 
-//    /** @test */
-//    public function testCreateProducts()
-//    {
-//        $product = $this->getTestProduct1();
-//        $parameters = ParameterFactory::createProductsParameters()->addProduct($product);
-//        $results = $this->trendyol->productService()->createProducts($parameters);
-//    }
+    /** @test */
+    public function testCreatingProducts()
+    {
+        $results = $this->trendyol->productService()
+            ->creatingProducts()
+            ->addProduct($this->getTestProduct1())
+            ->addProduct($this->getTestProduct1Variation())
+            ->create();
+
+        var_dump($results);
+    }
 }
