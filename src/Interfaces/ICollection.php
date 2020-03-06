@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol;
+namespace BoolXY\Trendyol\Interfaces;
 
 use Countable;
 use Iterator;

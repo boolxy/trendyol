@@ -2,8 +2,8 @@
 
 namespace BoolXY\Trendyol\Parameters;
 
-use BoolXY\Trendyol\AbstractParameters;
-use BoolXY\Trendyol\IParameters;
+use BoolXY\Trendyol\Abstracts\AbstractParameters;
+use BoolXY\Trendyol\Interfaces\IParameters;
 use BoolXY\Trendyol\Models\Product;
 
 class CreateProductsParameters extends AbstractParameters implements IParameters
@@ -14,7 +14,7 @@ class CreateProductsParameters extends AbstractParameters implements IParameters
      */
     public function addProduct(Product $product): self
     {
-        $this->data["items"][] = $product->toJson();
+        $this->data["items"][] = $product->toArray();
 
         return $this;
     }

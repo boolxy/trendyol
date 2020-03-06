@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol;
+namespace BoolXY\Trendyol\Interfaces;
 
 interface IRequest
 {
@@ -17,8 +17,9 @@ interface IRequest
     /**
      * RequestInterface constructor.
      * @param array $data
+     * @param array $queryParams
      */
-    public function __construct(array $data = []);
+    public function __construct(array $data = [], array $queryParams = []);
 
     /**
      * Returns the method
@@ -43,4 +44,22 @@ interface IRequest
      * @return array
      */
     public function getData(): array;
+
+    /**
+     * @param array $data
+     * @return IRequest
+     */
+    public function setData(array $data): IRequest;
+
+    /**
+     * Returns the data
+     * @return array
+     */
+    public function getQueryParams(): array;
+
+    /**
+     * @param array $queryParams
+     * @return IRequest
+     */
+    public function setQueryParams(array $queryParams): IRequest;
 }

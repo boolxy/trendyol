@@ -33,37 +33,41 @@ class TestCase extends \PHPUnit\Framework\TestCase
     protected function getTestProduct1()
     {
         $product = new Product();
-        $product->setBarcode("barkod-1234");
-        $product->setTitle("Bebek Takımı Pamuk");
-        $product->setProductMainId("1234BT");
-        $product->setBrandId(1791);
-        $product->setCategoryId(411);
-        $product->setQuantity(100);
-        $product->setStockCode("STK-345");
-        $product->setDimensionalWeight(2);
-        $product->setDescription("Ürün açıklama bilgisi");
-        $product->setCurrencyType("TRY");
-        $product->setListPrice(250.99);
-        $product->setSalePrice(120.99);
-        $product->setVatRate(18);
-        $product->setCargoCompanyId(10);
-        $product->setShipmentAddressId(0);
-        $product->setReturningAddressId(0);
-        $product->addImage([
-            "url" => "https://www.sampleadress/path/folder/image_1.jpg"
-        ]);
-        $product->addAttribute([
-            "attributeId" => 338,
-            "attributeValueId" => 6980
-        ]);
-        $product->addAttribute([
-            "attributeId" => 343,
-            "attributeValueId" => 4294
-        ]);
-        $product->addAttribute([
-            "attributeId" => 346,
-            "attributeValueId" => 4290
-        ]);
+        $product->barcode = "barkod-1234";
+        $product->title = "Bebek Takımı Pamuk";
+        $product->productMainId = "1234BT";
+        $product->brandId = 1791;
+        $product->categoryId = 411;
+        $product->quantity = 100;
+        $product->stockCode = "STK-345";
+        $product->dimensionalWeight = 2;
+        $product->description = "Ürün açıklama bilgisi";
+        $product->currencyType = "TRY";
+        $product->listPrice = 250.99;
+        $product->salePrice = 120.99;
+        $product->vatRate = 18;
+        $product->cargoCompanyId = 10;
+        $product->shipmentAddressId = 0;
+        $product->returningAddressId = 0;
+        $product->images = [
+            [
+                "url" => "https://www.sampleadress/path/folder/image_1.jpg",
+            ],
+        ];
+        $product->attributes = [
+            [
+                "attributeId" => 338,
+                "attributeValueId" => 6980,
+            ],
+            [
+                "attributeId" => 343,
+                "attributeValueId" => 4294,
+            ],
+            [
+                "attributeId" => 346,
+                "attributeValueId" => 4290,
+            ],
+        ];
 
         return $product;
     }
@@ -71,37 +75,41 @@ class TestCase extends \PHPUnit\Framework\TestCase
     protected function getTestProduct1Variation()
     {
         $product = new Product();
-        $product->setBarcode("barkod-12345");
-        $product->setTitle("Bebek Takımı Pamuk");
-        $product->setProductMainId("1234BT");
-        $product->setBrandId(1791);
-        $product->setCategoryId(411);
-        $product->setQuantity(100);
-        $product->setStockCode("STK-3454");
-        $product->setDimensionalWeight(2);
-        $product->setDescription("Ürün açıklama bilgisi");
-        $product->setCurrencyType("TRY");
-        $product->setListPrice(250.99);
-        $product->setSalePrice(120.99);
-        $product->setVatRate(18);
-        $product->setCargoCompanyId(10);
-        $product->setShipmentAddressId(0);
-        $product->setReturningAddressId(0);
-        $product->addImage([
-            "url" => "https://www.sampleadress/path/folder/image_2.jpg"
-        ]);
-        $product->addAttribute([
-            "attributeId" => 338,
-            "attributeValueId" => 6981
-        ]);
-        $product->addAttribute([
-            "attributeId" => 343,
-            "attributeValueId" => 4294
-        ]);
-        $product->addAttribute([
-            "attributeId" => 346,
-            "attributeValueId" => 4290
-        ]);
+        $product->barcode = "barkod-12345";
+        $product->title = "Bebek Takımı Pamuk";
+        $product->productMainId = "1234BT";
+        $product->brandId = 1791;
+        $product->categoryId = 411;
+        $product->quantity = 100;
+        $product->stockCode = "STK-3454";
+        $product->dimensionalWeight = 2;
+        $product->description = "Ürün açıklama bilgisi";
+        $product->currencyType = "TRY";
+        $product->listPrice = 250.99;
+        $product->salePrice = 120.99;
+        $product->vatRate = 18;
+        $product->cargoCompanyId = 10;
+        $product->shipmentAddressId = 0;
+        $product->returningAddressId = 0;
+        $product->images = [
+            [
+                "url" => "https://www.sampleadress/path/folder/image_2.jpg",
+            ],
+        ];
+        $product->attributes = [
+            [
+                "attributeId" => 338,
+                "attributeValueId" => 6981,
+            ],
+            [
+                "attributeId" => 343,
+                "attributeValueId" => 4294,
+            ],
+            [
+                "attributeId" => 346,
+                "attributeValueId" => 4290,
+            ],
+        ];
 
         return $product;
     }

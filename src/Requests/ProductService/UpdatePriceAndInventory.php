@@ -2,8 +2,8 @@
 
 namespace BoolXY\Trendyol\Requests\ProductService;
 
-use BoolXY\Trendyol\AbstractRequest;
-use BoolXY\Trendyol\IRequest;
+use BoolXY\Trendyol\Abstracts\AbstractRequest;
+use BoolXY\Trendyol\Interfaces\IRequest;
 
 class UpdatePriceAndInventory extends AbstractRequest implements IRequest
 {

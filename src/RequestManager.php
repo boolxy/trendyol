@@ -2,8 +2,10 @@
 
 namespace BoolXY\Trendyol;
 
+use BoolXY\Trendyol\Exceptions\InvalidArgumentException;
+use BoolXY\Trendyol\Interfaces\IRequest;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
-use phpDocumentor\Reflection\Types\Mixed_;
 
 class RequestManager
 {
@@ -29,16 +31,23 @@ class RequestManager
         $path = $request->getPath();
         $data = $request->getData();
 
-        $response = $this->client->$method($path, [
-            RequestOptions::SYNCHRONOUS => false,
-            RequestOptions::HEADERS => [
-                "Accept" => "application/json",
-                "Content-Type" => "application/json",
-            ],
-            RequestOptions::JSON => [
-                "data" => $data,
-            ],
-        ]);
+        $response = null;
+
+        try {
+            $response = $this->client->$method($path, [
+                RequestOptions::SYNCHRONOUS => false,
+                RequestOptions::HEADERS => [
+                    "Accept" => "application/json",
+                    "Content-Type" => "application/json",
+                ],
+                RequestOptions::JSON => [
+                    "data" => $data,
+                ],
+            ]);
+        } catch (ClientException $exception) {
+            $object = json_decode($exception->getResponse()->getBody()->getContents());
+            throw new InvalidArgumentException($object->errors[0]->message, $exception->getCode(), $exception);
+        }
 
         return json_decode((string) $response->getBody());
     }

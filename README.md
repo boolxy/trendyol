@@ -91,27 +91,23 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 with filters:
 ```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\ParameterFactory;                             
+use BoolXY\Trendyol\Trendyol;                          
 use BoolXY\Trendyol\Enums\DataQueryType;
 
-$parameters = ParameterFactory::getProductsParameters()
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->gettingProducts()
     ->dataQueryType(DataQueryType::LAST_MODIFIED_DATE)
     ->barcode('XXX')
     ->page(1)
     ->size(50)
     // ...
-    ;
-
-$results = Trendyol::create($user, $pass, $supplier_id)
-    ->productService()
-    ->getProducts($parameters);
+    ->get();
 ```
 
 #### Update price and inventory
 ```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\ParameterFactory;                             
+use BoolXY\Trendyol\Trendyol;                      
 
 $items = [
     [
@@ -123,9 +119,12 @@ $items = [
     // ...
 ];
 
-$parameters = ParameterFactory::updatePriceAndInventoryParameters();
+$service = Trendyol::create($user, $pass, $supplier_id)
+    ->productService()
+    ->updatingPriceAndInventory();
+
 foreach($items as $item) {
-    $parameters->addItem(
+    $service->addItem(
         $item["barcode"],
         $item["quantity"],
         $item["salePrice"],
@@ -133,9 +132,7 @@ foreach($items as $item) {
     );
 }
 
-$results = Trendyol::create($user, $pass, $supplier_id)
-    ->productService()
-    ->updatePriceAndInventory($parameters);
+$results = $service->update();
 ```
 
 #### Create your own products on Trendyol (Not tested yet)

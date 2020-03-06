@@ -2,10 +2,14 @@
 
 namespace BoolXY\Trendyol\Services;
 
-use BoolXY\Trendyol\AbstractService;
-use BoolXY\Trendyol\IParameters;
-use BoolXY\Trendyol\IService;
+use BoolXY\Trendyol\Abstracts\AbstractService;
+use BoolXY\Trendyol\Builders\GetProductsRequestBuilder;
+use BoolXY\Trendyol\Builders\UpdatePriceAndInventoryRequestBuilder;
+use BoolXY\Trendyol\Interfaces\IParameters;
+use BoolXY\Trendyol\Interfaces\IRequestBuilder;
+use BoolXY\Trendyol\Interfaces\IService;
 use BoolXY\Trendyol\ParameterFactory;
+use BoolXY\Trendyol\Parameters\CreateProductsParameters;
 use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\CreateProducts;
 use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
@@ -20,15 +24,6 @@ use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 
 class ProductService extends AbstractService implements IService
 {
-    /**
-     * ProductService constructor.
-     * @param RequestManager $requestManager
-     */
-    public function __construct(RequestManager $requestManager)
-    {
-        parent::__construct($requestManager);
-    }
-
     /**
      * Get brands
      * @param int $page
@@ -127,58 +122,48 @@ class ProductService extends AbstractService implements IService
     }
 
     /**
-     * @param IParameters|null $parameters
      * @return mixed
      */
-    public function getProducts(IParameters $parameters = null)
+    public function getProducts()
     {
-        if (is_null($parameters)) {
-            $parameters = ParameterFactory::getProductsParameters();
-        }
-
-        if (!$parameters->has('supplierId')) {
-            $supplierId = $this->requestManager->getClient()->getSupplierId();
-            $parameters->supplierId($supplierId);
-        }
-
-        $request = GetProducts::create($parameters->toArray());
+        $request = GetProducts::create([
+            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+        ]);
 
         return $this->requestManager->process($request);
     }
 
     /**
-     * @param IParameters|null $parameters
-     * @return mixed
+     * @return GetProductsRequestBuilder
      */
-    public function updatePriceAndInventory(IParameters $parameters = null)
+    public function gettingProducts(): GetProductsRequestBuilder
     {
-        if (is_null($parameters)) {
-            $parameters = ParameterFactory::updatePriceAndInventoryParameters();
-        }
-
-        if (!$parameters->has('supplierId')) {
-            $supplierId = $this->requestManager->getClient()->getSupplierId();
-            $parameters->supplierId($supplierId);
-        }
-
-        $request = UpdatePriceAndInventory::create($parameters->toArray());
-
-        return $this->requestManager->process($request);
+        return new GetProductsRequestBuilder($this->requestManager);
     }
 
-    public function createProducts(IParameters $parameters = null)
+    /**
+     * @return UpdatePriceAndInventoryRequestBuilder
+     */
+    public function updatingPriceAndInventory(): UpdatePriceAndInventoryRequestBuilder
     {
-        if (is_null($parameters)) {
-            $parameters = ParameterFactory::createProductsParameters();
-        }
-
-        if (!$parameters->has('supplierId')) {
-            $supplierId = $this->requestManager->getClient()->getSupplierId();
-            $parameters->supplierId($supplierId);
-        }
-
-        $request = CreateProducts::create($parameters->toArray());
-
-        return $this->requestManager->process($request);
+        return new UpdatePriceAndInventoryRequestBuilder($this->requestManager);
     }
+
+//    public function createProducts(IParameters $parameters = null)
+//    {
+//        if (is_null($parameters)) {
+//            $parameters = ParameterFactory::createProductsParameters();
+//        }
+//
+//        if (!$parameters->has('supplierId')) {
+//            $supplierId = $this->requestManager->getClient()->getSupplierId();
+//            $parameters->supplierId($supplierId);
+//        }
+//
+//        var_dump($parameters->get());
+//
+//        $request = CreateProducts::create($parameters->get());
+//
+//        return $this->requestManager->process($request);
+//    }
 }

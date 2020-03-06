@@ -2,6 +2,7 @@
 
 namespace BoolXY\Trendyol\Tests;
 
+use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\ParameterFactory;
 
 class ProductServiceTest extends TestCase
@@ -91,20 +92,36 @@ class ProductServiceTest extends TestCase
     }
 
     /** @test */
-    public function testUpdatePriceAndInventory()
+    public function testGettingProducts()
     {
-        $parameters = ParameterFactory::updatePriceAndInventoryParameters()
-            ->addItem("8680000000", 100, 112.85, 113.85);
+        $results = $this->trendyol->productService()->gettingProducts()->get();
 
-        $results = $this->trendyol->productService()->updatePriceAndInventory($parameters);
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("totalElements", $results);
+        $this->assertObjectHasAttribute("totalPages", $results);
+        $this->assertObjectHasAttribute("page", $results);
+        $this->assertObjectHasAttribute("size", $results);
+        $this->assertObjectHasAttribute("content", $results);
+        $this->assertIsArray($results->content);
+    }
+
+    /** @test */
+    public function testUpdatingPriceAndInventory()
+    {
+        $results = $this->trendyol->productService()
+            ->updatingPriceAndInventory()
+            ->addItem("8680000000", 100, 112.85, 113.85)
+            ->update();
 
         $this->assertIsObject($results);
         $this->assertObjectHasAttribute("batchRequestId", $results);
     }
 
-    /** @test */
-    public function testCreateProducts()
-    {
-        // TODO:
-    }
+//    /** @test */
+//    public function testCreateProducts()
+//    {
+//        $product = $this->getTestProduct1();
+//        $parameters = ParameterFactory::createProductsParameters()->addProduct($product);
+//        $results = $this->trendyol->productService()->createProducts($parameters);
+//    }
 }

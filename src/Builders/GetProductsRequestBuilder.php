@@ -1,11 +1,12 @@
 <?php
 
-namespace BoolXY\Trendyol\Parameters;
+namespace BoolXY\Trendyol\Builders;
 
-use BoolXY\Trendyol\AbstractParameters;
-use BoolXY\Trendyol\IParameters;
+use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
+use BoolXY\Trendyol\Interfaces\IRequestBuilder;
+use BoolXY\Trendyol\Requests\ProductService\GetProducts;
 
-class GetProductsParameters extends AbstractParameters implements IParameters
+class GetProductsRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
      * @param bool $is
@@ -82,5 +83,21 @@ class GetProductsParameters extends AbstractParameters implements IParameters
         $this->data["size"] = $size;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get()
+    {
+        return parent::process();
+    }
+
+    public function getRequest(): GetProducts
+    {
+        return GetProducts::create()
+            ->setQueryParams([
+                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            ]);
     }
 }

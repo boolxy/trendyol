@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol;
+namespace BoolXY\Trendyol\Abstracts;
 
-use GuzzleHttp\Client;
+use BoolXY\Trendyol\RequestManager;
 
 abstract class AbstractService
 {
