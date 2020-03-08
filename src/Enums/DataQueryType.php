@@ -2,9 +2,7 @@
 
 namespace BoolXY\Trendyol\Enums;
 
-use SplEnum;
-
-class DataQueryType extends SplEnum
+class DataQueryType
 {
     const CREATED_DATE = 'CREATED_DATE';
 

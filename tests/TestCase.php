@@ -4,6 +4,7 @@ namespace BoolXY\Trendyol\Tests;
 
 use BoolXY\Trendyol\Models\Product;
 use BoolXY\Trendyol\Trendyol;
+use Illuminate\Support\Str;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
@@ -30,10 +31,10 @@ class TestCase extends \PHPUnit\Framework\TestCase
         );
     }
 
-    protected function getTestProduct1()
+    protected function getTestProduct()
     {
         $product = new Product();
-        $product->barcode = "barkod-1234";
+        $product->barcode = Str::random(8);
         $product->title = "Bebek Takımı Pamuk";
         $product->productMainId = "1234BT";
         $product->brandId = 1791;

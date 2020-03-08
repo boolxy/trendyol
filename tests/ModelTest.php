@@ -9,7 +9,7 @@ class ModelTest extends TestCase
     /** @test */
     public function testProductCanBeJsonSerialized()
     {
-        $json = $this->getTestProduct1()->toJson();
+        $json = $this->getTestProduct()->toJson();
 
         $this->assertJson($json);
     }

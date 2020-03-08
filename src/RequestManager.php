@@ -40,9 +40,7 @@ class RequestManager
                     "Accept" => "application/json",
                     "Content-Type" => "application/json",
                 ],
-                RequestOptions::JSON => [
-                    "data" => $data,
-                ],
+                RequestOptions::JSON => $data,
             ]);
         } catch (ClientException $exception) {
             $object = json_decode($exception->getResponse()->getBody()->getContents());

@@ -7,7 +7,7 @@
         "php": "^7.4",
         "guzzlehttp/guzzle": "^6.5",
         "ramsey/collection": "^1.0",
-        "ext-spltype": "*"
+        "illuminate/support": "^7.0"
     },
     "require-dev": {
         "ext-mbstring": "^7.4",

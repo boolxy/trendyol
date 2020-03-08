@@ -119,10 +119,10 @@ class ProductServiceTest extends TestCase
     {
         $results = $this->trendyol->productService()
             ->creatingProducts()
-            ->addProduct($this->getTestProduct1())
-            ->addProduct($this->getTestProduct1Variation())
+            ->addProduct($this->getTestProduct())
             ->create();
 
-        var_dump($results);
+        $this->assertIsObject($results);
+        $this->assertObjectHasAttribute("batchRequestId", $results);
     }
 }
