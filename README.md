@@ -157,7 +157,7 @@ foreach($items as $item) {
     $service->addProduct($item);
 }
 
-$service->create();
+$result = $service->create();
 ```
 
 ### Order Service
@@ -179,6 +179,18 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->size(10)
     // ...
     ->get();
+```
+
+#### Update tracking number
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$shipmentPackageId = 11650604;
+$trackingNumber = "7340447182689";
+
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->orderService()
+    ->updateTrackingNumber($shipmentPackageId, $trackingNumber);
 ```
 
 ### Cancel Service

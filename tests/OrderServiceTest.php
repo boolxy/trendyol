@@ -2,6 +2,8 @@
 
 namespace BoolXY\Trendyol\Tests;
 
+use BoolXY\Trendyol\Exceptions\InvalidArgumentException;
+
 class OrderServiceTest extends TestCase
 {
     /** @test */
@@ -16,5 +18,21 @@ class OrderServiceTest extends TestCase
         $this->assertObjectHasAttribute("size", $results);
         $this->assertObjectHasAttribute("content", $results);
         $this->assertIsArray($results->content);
+    }
+
+    /** @test */
+    public function testUpdateTrackingNumber()
+    {
+        try {
+            $results = $this->trendyol->orderService()
+                ->updateTrackingNumber(11650604, "7340447182689");
+        } catch (InvalidArgumentException $exception) {
+            $message = $exception->getMessage();
+
+            $this->assertEquals(
+                $message,
+                "Sipariş kargo paketi güncelleme için uygun statüye sahip değildir. Paket Id: 11650604"
+            );
+        }
     }
 }
