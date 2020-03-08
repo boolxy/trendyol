@@ -97,7 +97,7 @@ use BoolXY\Trendyol\Enums\DataQueryType;
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
     ->gettingProducts()
-    ->dataQueryType(DataQueryType::LAST_MODIFIED_DATE)
+    ->dataQueryType(DataQueryType::create(DataQueryType::LAST_MODIFIED_DATE))
     ->barcode('XXX')
     ->page(1)
     ->size(50)
@@ -161,6 +161,26 @@ $service->create();
 ```
 
 ### Order Service
+
+#### Get shipment packages
+```php
+use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\Enums\ShipmentOrderBy;
+use BoolXY\Trendyol\Enums\ShipmentStatus;
+use BoolXY\Trendyol\Enums\OrderByDirection;
+
+$results = Trendyol::create($user, $pass, $supplier_id)
+    ->orderService()
+    ->gettingShipmentPackages()
+    ->status(ShipmentStatus::create(ShipmentStatus::DELIVERED))
+    ->orderByField(ShipmentOrderBy::create(ShipmentOrderBy::PACKAGE_LAST_MODIFIED_DATE))
+    ->orderByDirection(OrderByDirection::create(OrderByDirection::DESC))
+    ->page(1)
+    ->size(10)
+    // ...
+    ->get();
+```
+
 ### Cancel Service
 ### Accounting Service
 

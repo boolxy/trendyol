@@ -11,11 +11,18 @@ class AbstractRequestBuilder
 
     protected RequestManager $requestManager;
 
+    /**
+     * AbstractRequestBuilder constructor.
+     * @param RequestManager $requestManager
+     */
     public function __construct(RequestManager $requestManager)
     {
         $this->requestManager = $requestManager;
     }
 
+    /**
+     * @return mixed
+     */
     protected function process()
     {
         return $this->requestManager->process($this->getRequest()->setData($this->data));
