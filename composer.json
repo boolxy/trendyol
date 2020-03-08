@@ -1,6 +1,12 @@
 {
     "name": "boolxy/trendyol",
     "description": "The easiest way for using Trendyol APIs in PHP",
+    "keywords": [
+        "trendyol",
+        "trendyol-apis",
+        "api-client",
+        "php-api-client"
+    ],
     "type": "library",
     "require": {
         "ext-json": "^7.4",
