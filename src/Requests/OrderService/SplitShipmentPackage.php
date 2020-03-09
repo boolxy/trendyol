@@ -5,7 +5,7 @@ namespace BoolXY\Trendyol\Requests\OrderService;
 use BoolXY\Trendyol\Abstracts\AbstractRequest;
 use BoolXY\Trendyol\Interfaces\IRequest;
 
-class SplitShipmentPackages extends AbstractRequest implements IRequest
+class SplitShipmentPackage extends AbstractRequest implements IRequest
 {
     /**
      * @inheritDoc

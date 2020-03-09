@@ -5,9 +5,9 @@ namespace BoolXY\Trendyol\Builders;
 use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IRequestBuilder;
 use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\OrderService\SplitShipmentPackage;
+use BoolXY\Trendyol\Requests\OrderService\SplitShipmentPackageMulti;
 
-class SplitShipmentPackageRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
+class SplitShipmentPackageMultiRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
      * SplitShipmentPackagesRequestBuilder constructor.
@@ -17,7 +17,7 @@ class SplitShipmentPackageRequestBuilder extends AbstractRequestBuilder implemen
     {
         parent::__construct($requestManager);
 
-        $this->setRequest(SplitShipmentPackage::create([
+        $this->setRequest(SplitShipmentPackageMulti::create([
             "supplierId" => $this->requestManager->getClient()->getSupplierId(),
         ]));
     }
@@ -34,12 +34,14 @@ class SplitShipmentPackageRequestBuilder extends AbstractRequestBuilder implemen
     }
 
     /**
-     * @param int $orderLineId
+     * @param array $orderLineIds
      * @return $this
      */
-    public function addOrderLineId(int $orderLineId): self
+    public function addGroup(array $orderLineIds): self
     {
-        $this->request->addData("orderLineIds", $orderLineId, true);
+        $this->request->addData("splitGroups", [
+            "orderLineIds" => $orderLineIds,
+        ], true);
 
         return $this;
     }

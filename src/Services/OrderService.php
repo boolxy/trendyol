@@ -4,6 +4,7 @@ namespace BoolXY\Trendyol\Services;
 
 use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\GetShipmentPackagesRequestBuilder;
+use BoolXY\Trendyol\Builders\SplitShipmentPackageMultiRequestBuilder;
 use BoolXY\Trendyol\Builders\SplitShipmentPackageRequestBuilder;
 use BoolXY\Trendyol\Builders\UpdatePackageRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
@@ -67,5 +68,13 @@ class OrderService extends AbstractService implements IService
     public function splittingShipmentPackage(): SplitShipmentPackageRequestBuilder
     {
         return new SplitShipmentPackageRequestBuilder($this->requestManager);
+    }
+
+    /**
+     * @return SplitShipmentPackageMultiRequestBuilder
+     */
+    public function splittingShipmentPackageMulti(): SplitShipmentPackageMultiRequestBuilder
+    {
+        return new SplitShipmentPackageMultiRequestBuilder($this->requestManager);
     }
 }

@@ -219,6 +219,19 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     // ...
     ->split();
 ```
+multi
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->orderService()
+    ->splittingShipmentPackageMulti()
+    ->setShipmentPackageId(11650604)
+    ->addGroup([ 3, 5, 6 ])
+    ->addGroup([ 7, 8, 9 ])
+    // ...
+    ->split();
+```
 
 ### Cancel Service (Under construction)
 ### Accounting Service (Under construction)
