@@ -32,6 +32,14 @@ class AbstractRequestBuilder
     }
 
     /**
+     * @return IRequest
+     */
+    public function getRequest(): IRequest
+    {
+        return $this->request;
+    }
+
+    /**
      * @return mixed
      */
     protected function process()

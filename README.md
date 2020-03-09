@@ -205,6 +205,21 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->sendInvoiceLink($invoiceLink, $shipmentPackageId);
 ```
 
+#### Splitting shipment package
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->orderService()
+    ->splittingShipmentPackage()
+    ->setShipmentPackageId(11650604)
+    ->addOrderLineId(2)
+    ->addOrderLineId(3)
+    ->addOrderLineId(4)
+    // ...
+    ->split();
+```
+
 ### Cancel Service (Under construction)
 ### Accounting Service (Under construction)
 

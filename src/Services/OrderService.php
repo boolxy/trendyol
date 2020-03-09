@@ -4,6 +4,7 @@ namespace BoolXY\Trendyol\Services;
 
 use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\GetShipmentPackagesRequestBuilder;
+use BoolXY\Trendyol\Builders\SplitShipmentPackageRequestBuilder;
 use BoolXY\Trendyol\Builders\UpdatePackageRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
 use BoolXY\Trendyol\Requests\OrderService\SendInvoiceLink;
@@ -58,5 +59,13 @@ class OrderService extends AbstractService implements IService
             ->addData("shipmentPackageId", $shipmentPackageId);
 
         return $this->requestManager->process($request);
+    }
+
+    /**
+     * @return SplitShipmentPackageRequestBuilder
+     */
+    public function splittingShipmentPackage(): SplitShipmentPackageRequestBuilder
+    {
+        return new SplitShipmentPackageRequestBuilder($this->requestManager);
     }
 }
