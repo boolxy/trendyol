@@ -2,6 +2,7 @@
 
 namespace BoolXY\Trendyol;
 
+use BoolXY\Trendyol\Exceptions\EmptyResponseException;
 use BoolXY\Trendyol\Exceptions\InvalidArgumentException;
 use BoolXY\Trendyol\Interfaces\IRequest;
 use GuzzleHttp\Exception\ClientException;
@@ -24,6 +25,7 @@ class RequestManager
      * Process the request
      * @param IRequest $request
      * @return mixed
+     * @throws EmptyResponseException|InvalidArgumentException
      */
     public function process(IRequest $request)
     {
@@ -43,8 +45,13 @@ class RequestManager
                 RequestOptions::JSON => $data,
             ]);
         } catch (ClientException $exception) {
-            $object = json_decode($exception->getResponse()->getBody()->getContents());
-            throw new InvalidArgumentException($object->errors[0]->message, $exception->getCode(), $exception);
+            $message = $exception->getResponse()->getBody()->getContents();
+            if (!empty($message)) {
+                $object = json_decode($message);
+                throw new InvalidArgumentException($object->errors[0]->message, $exception->getCode(), $exception);
+            } else {
+                throw new EmptyResponseException("Empty response", $exception->getCode(), $exception);
+            }
         }
 
         return json_decode((string) $response->getBody());

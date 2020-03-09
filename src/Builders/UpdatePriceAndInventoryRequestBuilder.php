@@ -4,19 +4,22 @@ namespace BoolXY\Trendyol\Builders;
 
 use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IRequestBuilder;
+use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 
 class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
-     * @return UpdatePriceAndInventory
+     * UpdatePriceAndInventoryRequestBuilder constructor.
+     * @param RequestManager $requestManager
      */
-    protected function getRequest(): UpdatePriceAndInventory
+    public function __construct(RequestManager $requestManager)
     {
-        return UpdatePriceAndInventory::create()
-            ->setQueryParams([
-                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            ]);
+        parent::__construct($requestManager);
+
+        $this->setRequest(UpdatePriceAndInventory::create([
+            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+        ]));
     }
 
     /**
@@ -28,12 +31,12 @@ class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder imple
      */
     public function addItem(string $barcode, int $quantity, float $salePrice, float $listPrice)
     {
-        $this->data["items"][] = [
+        $this->request->addData("items", [
             "barcode" => $barcode,
             "quantity" => $quantity,
             "salePrice" => $salePrice,
             "listPrice" => $listPrice,
-        ];
+        ], true);
 
         return $this;
     }

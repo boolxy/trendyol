@@ -4,6 +4,7 @@ namespace BoolXY\Trendyol\Services;
 
 use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\GetShipmentPackagesRequestBuilder;
+use BoolXY\Trendyol\Builders\UpdatePackageRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
 use BoolXY\Trendyol\Requests\OrderService\UpdateTrackingNumber;
 
@@ -25,12 +26,20 @@ class OrderService extends AbstractService implements IService
     public function updateTrackingNumber(int $shipmentPackageId, string $trackingNumber)
     {
         $request = UpdateTrackingNumber::create([
-            "trackingNumber" => $trackingNumber,
-        ])->setQueryParams([
             "supplierId" => $this->requestManager->getClient()->getSupplierId(),
             "shipmentPackageId" => $shipmentPackageId,
+        ], [
+            "trackingNumber" => $trackingNumber,
         ]);
 
         return $this->requestManager->process($request);
+    }
+
+    /**
+     * @return UpdatePackageRequestBuilder
+     */
+    public function updatingPackage(): UpdatePackageRequestBuilder
+    {
+        return new UpdatePackageRequestBuilder($this->requestManager);
     }
 }

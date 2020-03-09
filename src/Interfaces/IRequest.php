@@ -2,6 +2,8 @@
 
 namespace BoolXY\Trendyol\Interfaces;
 
+use BoolXY\Trendyol\Abstracts\AbstractRequest;
+
 interface IRequest
 {
     const METHOD_GET = 'get';
@@ -19,7 +21,7 @@ interface IRequest
      * @param array $data
      * @param array $queryParams
      */
-    public function __construct(array $data = [], array $queryParams = []);
+    public function __construct(array $queryParams = [], array $data = []);
 
     /**
      * Returns the method
@@ -40,10 +42,10 @@ interface IRequest
     public function getPathPattern(): string;
 
     /**
-     * Returns the data
-     * @return array
+     * @param string $key
+     * @return mixed
      */
-    public function getData(): array;
+    public function getData(string $key = "");
 
     /**
      * @param array $data
@@ -62,4 +64,19 @@ interface IRequest
      * @return IRequest
      */
     public function setQueryParams(array $queryParams): IRequest;
+
+    /**
+     * @param string $key
+     * @param $value
+     * @param bool $isNew
+     * @return IRequest
+     */
+    public function addData(string $key, $value, bool $isNew = false): IRequest;
+
+    /**
+     * @param string $key
+     * @param $value
+     * @return IRequest
+     */
+    public function addQueryParam(string $key, $value): IRequest;
 }

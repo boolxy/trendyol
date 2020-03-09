@@ -7,19 +7,22 @@ use BoolXY\Trendyol\Enums\OrderByDirection;
 use BoolXY\Trendyol\Enums\ShipmentOrderBy;
 use BoolXY\Trendyol\Enums\ShipmentStatus;
 use BoolXY\Trendyol\Interfaces\IRequestBuilder;
+use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\OrderService\GetShipmentPackages;
 
 class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
-     * @return GetShipmentPackages
+     * GetShipmentPackagesRequestBuilder constructor.
+     * @param RequestManager $requestManager
      */
-    protected function getRequest(): GetShipmentPackages
+    public function __construct(RequestManager $requestManager)
     {
-        return GetShipmentPackages::create()
-            ->setQueryParams([
-                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            ]);
+        parent::__construct($requestManager);
+
+        $this->setRequest(GetShipmentPackages::create([
+            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+        ]));
     }
 
     /**
@@ -28,7 +31,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function startDate(int $timestamp): self
     {
-        $this->data["startDate"] = $timestamp;
+        $this->request->addData("startDate", $timestamp);
 
         return $this;
     }
@@ -39,7 +42,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function endDate(int $timestamp): self
     {
-        $this->data["endDate"] = $timestamp;
+        $this->request->addData("endDate", $timestamp);
 
         return $this;
     }
@@ -50,7 +53,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function page(int $pageNumber): self
     {
-        $this->data["page"] = $pageNumber;
+        $this->request->addData("page", $pageNumber);
 
         return $this;
     }
@@ -61,7 +64,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function size(int $size): self
     {
-        $this->data["size"] = $size;
+        $this->request->addData("size", $size);
 
         return $this;
     }
@@ -72,7 +75,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function orderNumber(string $orderNumber): self
     {
-        $this->data["orderNumber"] = $orderNumber;
+        $this->request->addData("orderNumber", $orderNumber);
 
         return $this;
     }
@@ -83,7 +86,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function status(ShipmentStatus $shipmentStatus): self
     {
-        $this->data["shipmentStatus"] = (string) $shipmentStatus;
+        $this->request->addData("shipmentStatus", (string) $shipmentStatus);
 
         return $this;
     }
@@ -94,7 +97,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function orderByField(ShipmentOrderBy $orderBy): self
     {
-        $this->data["orderByField"] = (string) $orderBy;
+        $this->request->addData("orderByField", (string) $orderBy);
 
         return $this;
     }
@@ -105,7 +108,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function orderByDirection(OrderByDirection $direction): self
     {
-        $this->data["orderByDirection"] = (string) $direction;
+        $this->request->addData("orderByDirection", (string) $direction);
 
         return $this;
     }
@@ -116,7 +119,7 @@ class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implement
      */
     public function shipmentPackageIds(string $shipmentPackageIds): self
     {
-        $this->data["shipmentPackageIds"] = $shipmentPackageIds;
+        $this->request->addData("shipmentPackageIds", $shipmentPackageIds);
 
         return $this;
     }

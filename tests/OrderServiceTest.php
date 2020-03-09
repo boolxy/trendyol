@@ -2,6 +2,7 @@
 
 namespace BoolXY\Trendyol\Tests;
 
+use BoolXY\Trendyol\Enums\ShipmentStatus;
 use BoolXY\Trendyol\Exceptions\InvalidArgumentException;
 
 class OrderServiceTest extends TestCase
@@ -30,9 +31,32 @@ class OrderServiceTest extends TestCase
             $message = $exception->getMessage();
 
             $this->assertEquals(
-                $message,
-                "Sipariş kargo paketi güncelleme için uygun statüye sahip değildir. Paket Id: 11650604"
+                "Sipariş kargo paketi güncelleme için uygun statüye sahip değildir. Paket Id: 11650604",
+                $message
             );
         }
+    }
+
+    /** @test */
+    public function testUpdatingPackage()
+    {
+        try {
+            $results = $this->trendyol->orderService()
+                ->updatingPackage()
+                ->setPackageId(11650604)
+                ->addLine(56040534, 3)
+                ->addParam("invoiceNumber", "EME2018000025208")
+                ->setStatus(ShipmentStatus::create(ShipmentStatus::INVOICED))
+                ->update();
+        } catch (InvalidArgumentException $exception) {
+            $message = $exception->getMessage();
+
+            $this->assertEquals(
+                "Sipariş kargo paketi güncelleme için uygun statüye sahip değildir. Paket Id: 11650604",
+                $message
+            );
+        }
+
+        var_dump($results);
     }
 }

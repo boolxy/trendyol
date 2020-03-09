@@ -15,15 +15,11 @@ abstract class AbstractRequest implements IRequest
      * @param array $data
      * @param array $queryParams
      */
-    public function __construct(array $data = [], array $queryParams = [])
+    public function __construct(array $queryParams = [], array $data = [])
     {
-        $this->data = $data;
+        $this->queryParams = $queryParams;
 
-        if (empty($queryParams) && $this->getMethod() === IRequest::METHOD_GET) {
-            $this->queryParams = $data;
-        } else {
-            $this->queryParams = $queryParams;
-        }
+        $this->data = $data;
     }
 
     /**
@@ -31,9 +27,9 @@ abstract class AbstractRequest implements IRequest
      * @param array $queryParams
      * @return static
      */
-    public static function create(array $data = [], array $queryParams = []): self
+    public static function create(array $queryParams = [], array $data = []): self
     {
-        return new static($data, $queryParams);
+        return new static($queryParams, $data);
     }
 
     /**
@@ -79,11 +75,38 @@ abstract class AbstractRequest implements IRequest
     }
 
     /**
-     * @return array
+     * @param array $data
+     * @return $this
      */
-    public function getData(): array
+    public function setData(array $data): self
     {
-        return $this->data;
+        $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    public function getData(string $key = "")
+    {
+        if (empty($key))
+        {
+            return $this->data;
+        }
+        return $this->data[$key] ?? null;
+    }
+
+    /**
+     * @param array $queryParams
+     * @return $this
+     */
+    public function setQueryParams(array $queryParams): self
+    {
+        $this->queryParams = $queryParams;
+
+        return $this;
     }
 
     /**
@@ -94,29 +117,31 @@ abstract class AbstractRequest implements IRequest
         return $this->queryParams;
     }
 
-
     /**
-     * @param array $data
+     * @param string $key
+     * @param $value
+     * @param bool $isNew
      * @return $this
      */
-    public function setData(array $data): self
+    public function addData(string $key, $value, bool $isNew = false): self
     {
-        $this->data = $data;
-
-        if (empty($this->queryParams) && $this->getMethod() === IRequest::METHOD_GET) {
-            $this->queryParams = $data;
+        if (!$isNew) {
+            $this->data[$key] = $value;
+        } else {
+            $this->data[$key][] = $value;
         }
 
         return $this;
     }
 
     /**
-     * @param array $queryParams
+     * @param string $key
+     * @param $value
      * @return $this
      */
-    public function setQueryParams(array $queryParams): self
+    public function addQueryParam(string $key, $value): self
     {
-        $this->queryParams = $queryParams;
+        $this->queryParams[$key] = $value;
 
         return $this;
     }

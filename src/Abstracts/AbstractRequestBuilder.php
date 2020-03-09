@@ -7,7 +7,7 @@ use BoolXY\Trendyol\RequestManager;
 
 class AbstractRequestBuilder
 {
-    protected array $data = [];
+    protected IRequest $request;
 
     protected RequestManager $requestManager;
 
@@ -21,18 +21,21 @@ class AbstractRequestBuilder
     }
 
     /**
+     * @param IRequest $request
+     * @return $this
+     */
+    public function setRequest(IRequest $request): self
+    {
+        $this->request = $request;
+
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     protected function process()
     {
-        return $this->requestManager->process($this->getRequest()->setData($this->data));
-    }
-
-    /**
-     * Override this
-     * @return IRequest
-     */
-    protected function getRequest(): IRequest
-    {
+        return $this->requestManager->process($this->request);
     }
 }

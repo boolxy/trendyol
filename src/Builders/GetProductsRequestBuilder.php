@@ -5,19 +5,22 @@ namespace BoolXY\Trendyol\Builders;
 use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
 use BoolXY\Trendyol\Enums\DataQueryType;
 use BoolXY\Trendyol\Interfaces\IRequestBuilder;
+use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\GetProducts;
 
 class GetProductsRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
-     * @return GetProducts
+     * GetProductsRequestBuilder constructor.
+     * @param RequestManager $requestManager
      */
-    protected function getRequest(): GetProducts
+    public function __construct(RequestManager $requestManager)
     {
-        return GetProducts::create()
-            ->setQueryParams([
-                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            ]);
+        parent::__construct($requestManager);
+
+        $this->setRequest(GetProducts::create([
+            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+        ]));
     }
 
     /**
@@ -26,7 +29,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function approved(bool $is): self
     {
-        $this->data["approved"] = $is ? "true" : "false";
+        $this->request->addData("approved", $is ? "true" : "false");
 
         return $this;
     }
@@ -37,7 +40,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function barcode(string $barcode): self
     {
-        $this->data["barcode"] = $barcode;
+        $this->request->addData("barcode", $barcode);
 
         return $this;
     }
@@ -48,7 +51,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function startDate(int $timestamp): self
     {
-        $this->data["startDate"] = $timestamp;
+        $this->request->addData("startDate", $timestamp);
 
         return $this;
     }
@@ -59,7 +62,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function endDate(int $timestamp): self
     {
-        $this->data["endDate"] = $timestamp;
+        $this->request->addData("endDate", $timestamp);
 
         return $this;
     }
@@ -70,7 +73,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function page(int $pageNumber): self
     {
-        $this->data["page"] = $pageNumber;
+        $this->request->addData("page", $pageNumber);
 
         return $this;
     }
@@ -81,7 +84,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function dataQueryType(DataQueryType $dataQueryType): self
     {
-        $this->data["dataQueryType"] = (string) $dataQueryType;
+        $this->request->addData("dataQueryType", (string) $dataQueryType);
 
         return $this;
     }
@@ -92,7 +95,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function size(int $size): self
     {
-        $this->data["size"] = $size;
+        $this->request->addData("size", $size);
 
         return $this;
     }
@@ -102,6 +105,6 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function get()
     {
-        return parent::process();
+        return $this->process();
     }
 }

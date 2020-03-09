@@ -5,19 +5,22 @@ namespace BoolXY\Trendyol\Builders;
 use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IRequestBuilder;
 use BoolXY\Trendyol\Models\Product;
+use BoolXY\Trendyol\RequestManager;
 use BoolXY\Trendyol\Requests\ProductService\CreateProducts;
 
 class CreateProductsRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {
     /**
-     * @return CreateProducts
+     * CreateProductsRequestBuilder constructor.
+     * @param RequestManager $requestManager
      */
-    protected function getRequest(): CreateProducts
+    public function __construct(RequestManager $requestManager)
     {
-        return CreateProducts::create()
-            ->setQueryParams([
-                "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            ]);
+        parent::__construct($requestManager);
+
+        $this->setRequest(CreateProducts::create([
+            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+        ]));
     }
 
     /**
@@ -26,7 +29,7 @@ class CreateProductsRequestBuilder extends AbstractRequestBuilder implements IRe
      */
     public function addProduct(Product $product): self
     {
-        $this->data["items"][] = $product->toArray();
+        $this->request->addData("items", $product->toArray(), true);
 
         return $this;
     }
