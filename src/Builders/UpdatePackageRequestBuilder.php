@@ -74,7 +74,6 @@ class UpdatePackageRequestBuilder extends AbstractRequestBuilder implements IReq
      */
     public function update()
     {
-        var_dump(json_encode($this->request->getData()));
         return $this->process();
     }
 }
