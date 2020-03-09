@@ -193,6 +193,18 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->updateTrackingNumber($shipmentPackageId, $trackingNumber);
 ```
 
+#### Send invoice link
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$shipmentPackageId = 11650604;
+$invoiceLink = "https://extfatura.faturaentegratoru.com/324523-34523-52345-3453245.pdf";
+
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->orderService()
+    ->sendInvoiceLink($invoiceLink, $shipmentPackageId);
+```
+
 ### Cancel Service (Under construction)
 ### Accounting Service (Under construction)
 
