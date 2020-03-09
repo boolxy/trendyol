@@ -160,7 +160,7 @@ foreach($items as $item) {
 $result = $service->create();
 ```
 
-### Order Service (Under construction)
+### Order Service
 
 #### Get shipment packages
 ```php
@@ -229,6 +229,18 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->setShipmentPackageId(11650604)
     ->addGroup([ 3, 5, 6 ])
     ->addGroup([ 7, 8, 9 ])
+    // ...
+    ->split();
+```
+by quantity
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->orderService()
+    ->splittingShipmentPackageByQuantity()
+    ->setShipmentPackageId(11650604)
+    ->addQuantitySplit($orderLineId = 0, [ 2, 2 ])
     // ...
     ->split();
 ```

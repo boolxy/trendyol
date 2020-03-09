@@ -129,4 +129,25 @@ class OrderServiceTest extends TestCase
         ], $request->getData());
         $this->assertEquals("suppliers/120874/shipment-packages/11650604/multi-split", $request->getPath());
     }
+
+    /** @test */
+    public function testSplittingShipmentPackageByQuantity()
+    {
+        $request = $this->trendyol->orderService()->splittingShipmentPackageByQuantity()
+            ->setShipmentPackageId(11650604)
+            ->addQuantitySplit(0, [ 2, 2 ])
+            ->getRequest();
+
+        $this->assertEquals([
+            "quantitySplit" => [
+                [
+                    "orderLineId" => 0,
+                    "quantities" => [
+                        2, 2
+                    ],
+                ],
+            ],
+        ], $request->getData());
+        $this->assertEquals("suppliers/120874/shipment-packages/11650604/quantity-split", $request->getPath());
+    }
 }
