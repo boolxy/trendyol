@@ -6,6 +6,7 @@ use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\GetShipmentPackagesRequestBuilder;
 use BoolXY\Trendyol\Builders\UpdatePackageRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
+use BoolXY\Trendyol\Requests\OrderService\SendInvoiceLink;
 use BoolXY\Trendyol\Requests\OrderService\UpdateTrackingNumber;
 
 class OrderService extends AbstractService implements IService
@@ -41,5 +42,21 @@ class OrderService extends AbstractService implements IService
     public function updatingPackage(): UpdatePackageRequestBuilder
     {
         return new UpdatePackageRequestBuilder($this->requestManager);
+    }
+
+    /**
+     * @param string $invoiceLink
+     * @param int $shipmentPackageId
+     * @return mixed
+     */
+    public function sendInvoiceLink(string $invoiceLink, int $shipmentPackageId)
+    {
+        $request = SendInvoiceLink::create([
+            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+        ])
+            ->addData("invoiceLink", $invoiceLink)
+            ->addData("shipmentPackageId", $shipmentPackageId);
+
+        return $this->requestManager->process($request);
     }
 }

@@ -2,10 +2,7 @@
 
 namespace BoolXY\Trendyol;
 
-use BoolXY\Trendyol\Exceptions\EmptyResponseException;
-use BoolXY\Trendyol\Exceptions\InvalidArgumentException;
 use BoolXY\Trendyol\Interfaces\IRequest;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 
 class RequestManager
@@ -25,7 +22,6 @@ class RequestManager
      * Process the request
      * @param IRequest $request
      * @return mixed
-     * @throws EmptyResponseException|InvalidArgumentException
      */
     public function process(IRequest $request)
     {
@@ -33,26 +29,14 @@ class RequestManager
         $path = $request->getPath();
         $data = $request->getData();
 
-        $response = null;
-
-        try {
-            $response = $this->client->$method($path, [
-                RequestOptions::SYNCHRONOUS => false,
-                RequestOptions::HEADERS => [
-                    "Accept" => "application/json",
-                    "Content-Type" => "application/json",
-                ],
-                RequestOptions::JSON => $data,
-            ]);
-        } catch (ClientException $exception) {
-            $message = $exception->getResponse()->getBody()->getContents();
-            if (!empty($message)) {
-                $object = json_decode($message);
-                throw new InvalidArgumentException($object->errors[0]->message, $exception->getCode(), $exception);
-            } else {
-                throw new EmptyResponseException("Empty response", $exception->getCode(), $exception);
-            }
-        }
+        $response = $this->client->$method($path, [
+            RequestOptions::SYNCHRONOUS => false,
+            RequestOptions::HEADERS => [
+                "Accept" => "application/json",
+                "Content-Type" => "application/json",
+            ],
+            RequestOptions::JSON => $data,
+        ]);
 
         return json_decode((string) $response->getBody());
     }
