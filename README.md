@@ -1,6 +1,15 @@
-# Trendyol Client Lib
+# Trendyol PHP Client
 
-The easiest way for using Trendyol APIs in PHP
+Trendyol is the largest and fastest growing mobile commerce company in Turkey and in the MENA region.
+
+This library is the easiest way for using Trendyol API services in PHP
+
+Services:
+
+1. Product Service
+2. Order Service
+3. Claim Service (coming soon)
+4. Settlement Service (coming soon)
 
 ## Installation
 
@@ -15,6 +24,7 @@ composer require boolxy/trendyol
 ### Product Service
 
 #### Get brands
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -24,6 +34,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get brands by name
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -33,6 +44,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get categories
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -42,6 +54,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get attributes by categoryId
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -53,6 +66,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get shipment providers
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -62,6 +76,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get suppliers addresses
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -71,6 +86,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get batch request result
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -82,6 +98,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Get products
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -89,7 +106,9 @@ $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
     ->getProducts();
 ```
+
 with filters:
+
 ```php
 use BoolXY\Trendyol\Trendyol;                          
 use BoolXY\Trendyol\Enums\DataQueryType;
@@ -106,6 +125,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Update price and inventory
+
 ```php
 use BoolXY\Trendyol\Trendyol;                      
 
@@ -136,6 +156,7 @@ $results = $service->update();
 ```
 
 #### Create your own products on Trendyol
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 use BoolXY\Trendyol\Models\Product;
@@ -163,6 +184,7 @@ $result = $service->create();
 ### Order Service
 
 #### Get shipment packages
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 use BoolXY\Trendyol\Enums\ShipmentOrderBy;
@@ -182,6 +204,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Update tracking number
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -194,6 +217,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Send invoice link
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -206,6 +230,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 ```
 
 #### Splitting shipment package
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -219,7 +244,9 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     // ...
     ->split();
 ```
+
 multi
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -232,7 +259,9 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     // ...
     ->split();
 ```
+
 by quantity
+
 ```php
 use BoolXY\Trendyol\Trendyol;
 
@@ -245,14 +274,13 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->split();
 ```
 
-### Cancel Service (Under construction)
-### Accounting Service (Under construction)
-
-With reviewing the tests, you can learn more...
+### Claim Service (Unavailable yet)
+### Settlement Service (Unavailable yet)
 
 ## Testing
 
-Copy phpunit.xml.dist as phpunit.xml and update it. After then you can start testing.
+With reviewing the tests, you can learn more...
+For testing: Copy phpunit.xml.dist as phpunit.xml and update it. After then you can start the testing.
 
 ```bash
 vendor/bin/phpunit

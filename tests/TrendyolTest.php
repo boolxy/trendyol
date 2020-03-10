@@ -2,11 +2,11 @@
 
 namespace BoolXY\Trendyol\Tests;
 
-use BoolXY\Trendyol\Services\AccountingService;
-use BoolXY\Trendyol\Services\CancelService;
-use BoolXY\Trendyol\Services\OrderService;
 use BoolXY\Trendyol\Trendyol;
 use BoolXY\Trendyol\Services\ProductService;
+use BoolXY\Trendyol\Services\OrderService;
+use BoolXY\Trendyol\Services\ClaimService;
+use BoolXY\Trendyol\Services\SettlementService;
 
 class TrendyolTest extends TestCase
 {
@@ -19,17 +19,17 @@ class TrendyolTest extends TestCase
     /** @test */
     public function testAccountingServiceInstance()
     {
-        $service = $this->trendyol->accountingService();
+        $service = $this->trendyol->settlementService();
 
-        $this->assertInstanceOf(AccountingService::class, $service);
+        $this->assertInstanceOf(SettlementService::class, $service);
     }
 
     /** @test */
     public function testCancelServiceInstance()
     {
-        $service = $this->trendyol->cancelService();
+        $service = $this->trendyol->claimService();
 
-        $this->assertInstanceOf(CancelService::class, $service);
+        $this->assertInstanceOf(ClaimService::class, $service);
     }
 
     /** @test */

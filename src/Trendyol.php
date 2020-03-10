@@ -2,8 +2,8 @@
 
 namespace BoolXY\Trendyol;
 
-use BoolXY\Trendyol\Services\AccountingService;
-use BoolXY\Trendyol\Services\CancelService;
+use BoolXY\Trendyol\Services\SettlementService;
+use BoolXY\Trendyol\Services\ClaimService;
 use BoolXY\Trendyol\Services\OrderService;
 use BoolXY\Trendyol\Services\ProductService;
 
@@ -36,19 +36,19 @@ class Trendyol
     }
 
     /**
-     * @return AccountingService
+     * @return SettlementService
      */
-    public function accountingService(): AccountingService
+    public function settlementService(): SettlementService
     {
-        return new AccountingService($this->requestManager);
+        return new SettlementService($this->requestManager);
     }
 
     /**
-     * @return CancelService
+     * @return ClaimService
      */
-    public function cancelService(): CancelService
+    public function claimService(): ClaimService
     {
-        return new CancelService($this->requestManager);
+        return new ClaimService($this->requestManager);
     }
 
     /**
