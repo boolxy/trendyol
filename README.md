@@ -2,7 +2,8 @@
 
 Trendyol is the largest and fastest growing mobile commerce company in Turkey and in the MENA region.
 
-This library is the easiest way for using Trendyol API services in PHP
+This library is the easiest way to use Trendyol API services in PHP.
+If you are a Trendyol partner and use PHP programming language on your own website, this package is perfect for you.
 
 Services:
 
