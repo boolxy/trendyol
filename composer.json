@@ -12,7 +12,6 @@
         "ext-json": "^7.4",
         "php": "^7.4",
         "guzzlehttp/guzzle": "^6.5",
-        "ramsey/collection": "^1.0",
         "illuminate/support": "^7.0"
     },
     "require-dev": {
