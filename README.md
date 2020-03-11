@@ -10,7 +10,7 @@ Services:
 1. Product Service
 2. Order Service
 3. Claim Service (coming soon)
-4. Settlement Service (coming soon)
+4. Settlement Service
 
 ## Installation
 
@@ -316,9 +316,23 @@ $results = Trendyol::create($user, $pass, $supplierId)
     ->getClaimsIssueReasons();
 ```
 
-### Settlement Service (Unavailable yet)
+### Settlement Service
 
-#### Get settlements (Unavailable yet)
+#### Get settlements
+
+```php
+use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\Enums\SettlementDateType;
+
+$results = Trendyol::create($user, $pass, $supplierId)
+    ->settlementService()
+    ->gettingSettlements()
+    ->dateType(SettlementDateType::create(SettlementDateType::ORDER))
+    ->startDate(1557469159834)
+    ->endDate(1557469159834)
+    // ...
+    ->get();
+```
 
 ## Testing
 
