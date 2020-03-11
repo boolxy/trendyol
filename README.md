@@ -275,8 +275,29 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->split();
 ```
 
-### Claim Service (Unavailable yet)
+### Claim Service (Unavailable completely yet)
+
+#### Get claims
+
+```php
+use BoolXY\Trendyol\Trendyol;
+use BoolXY\Trendyol\Enums\ClaimItemStatus;
+
+$result = Trendyol::create($user, $pass, $supplier_id)->claimService()->getClaims()
+    ->status(ClaimItemStatus::create(ClaimItemStatus::CREATED))
+    // ...
+    ->get();
+```
+
+#### Approve claim line items (coming soon)
+
+#### Create claim issue (coming soon)
+
+#### Get claims issue reasons (coming soon)
+
 ### Settlement Service (Unavailable yet)
+
+#### Get settlements (Unavailable yet)
 
 ## Testing
 
