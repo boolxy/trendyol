@@ -21,4 +21,8 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Run test suite
+      env:
+        TRENDYOL_USER: ${{ secrets.TRENDYOL_USER }}
+        TRENDYOL_PASS: ${{ secrets.TRENDYOL_PASS }}
+        TRENDYOL_SUPPLIER_ID: ${{ secrets.TRENDYOL_SUPPLIER_ID }}
       run: composer run-script test
