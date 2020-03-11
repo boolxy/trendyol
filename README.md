@@ -283,7 +283,9 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 use BoolXY\Trendyol\Trendyol;
 use BoolXY\Trendyol\Enums\ClaimItemStatus;
 
-$result = Trendyol::create($user, $pass, $supplier_id)->claimService()->getClaims()
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->claimService()
+    ->gettingClaims()
     ->status(ClaimItemStatus::create(ClaimItemStatus::CREATED))
     // ...
     ->get();
@@ -294,7 +296,9 @@ $result = Trendyol::create($user, $pass, $supplier_id)->claimService()->getClaim
 ```php
 use BoolXY\Trendyol\Trendyol;
 
-$result = Trendyol::create($user, $pass, $supplier_id)->claimService()->approvingClaimLineItems()
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->claimService()
+    ->approvingClaimLineItems()
     ->addClaimItemId("f9da2317-876b-4b86-b8f7-0535c3b65731")
     // ...
     ->approve();

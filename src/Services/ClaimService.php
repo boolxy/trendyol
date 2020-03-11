@@ -12,7 +12,7 @@ class ClaimService extends AbstractService implements IService
     /**
      * @return GetClaimsRequestBuilder
      */
-    public function getClaims(): GetClaimsRequestBuilder
+    public function gettingClaims(): GetClaimsRequestBuilder
     {
         return new GetClaimsRequestBuilder($this->requestManager);
     }

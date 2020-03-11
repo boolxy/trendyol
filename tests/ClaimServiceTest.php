@@ -9,7 +9,7 @@ class ClaimServiceTest extends TestCase
     /** @test */
     public function testGetClaims()
     {
-        $results = $this->trendyol->claimService()->getClaims()
+        $results = $this->trendyol->claimService()->gettingClaims()
             ->status(ClaimItemStatus::create(ClaimItemStatus::CREATED))
             ->get();
 
