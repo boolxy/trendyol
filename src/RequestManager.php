@@ -28,6 +28,7 @@ class RequestManager
         $method = $request->getMethod();
         $path = $request->getPath();
         $data = $request->getData();
+        $multipart = $request->getMultipart();
 
         $response = $this->client->$method($path, [
             RequestOptions::SYNCHRONOUS => false,
@@ -36,6 +37,7 @@ class RequestManager
                 "Content-Type" => "application/json",
             ],
             RequestOptions::JSON => $data,
+            RequestOptions::MULTIPART => $multipart,
         ]);
 
         return json_decode((string) $response->getBody());

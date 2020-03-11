@@ -44,4 +44,23 @@ class ClaimServiceTest extends TestCase
         $this->assertIsArray($results);
         $this->assertGreaterThan(0, count($results));
     }
+
+    /** @test */
+    public function testCreateClaimIssue()
+    {
+        $request = $this->trendyol->claimService()->creatingClaimIssue()
+            ->setClaimIssueReasonId(1)
+            ->setClaimId("f9da2317-876b-4b86-b8f7-0535c3b65731")
+            ->setClaimItemIdList("b71461e3-d1a0-4c1d-9a6d-18ecbcb5158c")
+            ->addFile(__DIR__ . '/test.png')
+            ->getRequest();
+
+        $this->assertEquals([
+            "claimIssueReasonId" => 1,
+            "claimId" => "f9da2317-876b-4b86-b8f7-0535c3b65731",
+            "claimItemIdList" => "b71461e3-d1a0-4c1d-9a6d-18ecbcb5158c",
+        ], $request->getQueryParams());
+        $this->assertArrayHasKey("name", $request->getMultipart()[0]);
+        $this->assertArrayHasKey("contents", $request->getMultipart()[0]);
+    }
 }

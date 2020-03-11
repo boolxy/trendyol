@@ -10,6 +10,8 @@ abstract class AbstractRequest implements IRequest
 
     private array $queryParams = [];
 
+    private array $multipart = [];
+
     /**
      * AbstractRequest constructor.
      * @param array $data
@@ -144,5 +146,24 @@ abstract class AbstractRequest implements IRequest
         $this->queryParams[$key] = $value;
 
         return $this;
+    }
+
+    /**
+     * @param array $item
+     * @return $this
+     */
+    public function addMultipart(array $item): self
+    {
+        $this->multipart[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMultipart(): array
+    {
+        return $this->multipart;
     }
 }

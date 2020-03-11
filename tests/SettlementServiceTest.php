@@ -7,7 +7,7 @@ use BoolXY\Trendyol\Enums\SettlementDateType;
 class SettlementServiceTest extends TestCase
 {
     /** @test */
-    public function testGettingSettlements()
+    public function testGetSettlements()
     {
         $results = $this->trendyol->settlementService()->gettingSettlements()
             ->dateType(SettlementDateType::create(SettlementDateType::ORDER))

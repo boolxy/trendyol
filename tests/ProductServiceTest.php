@@ -103,7 +103,7 @@ class ProductServiceTest extends TestCase
     }
 
     /** @test */
-    public function testUpdatingPriceAndInventory()
+    public function testUpdatePriceAndInventory()
     {
         $results = $this->trendyol->productService()
             ->updatingPriceAndInventory()
@@ -115,7 +115,7 @@ class ProductServiceTest extends TestCase
     }
 
     /** @test */
-    public function testCreatingProducts()
+    public function testCreateProducts()
     {
         $results = $this->trendyol->productService()
             ->creatingProducts()

@@ -9,7 +9,7 @@ use BoolXY\Trendyol\Requests\OrderService\UpdateTrackingNumber;
 class OrderServiceTest extends TestCase
 {
     /** @test */
-    public function testGettingShipmentPackages()
+    public function testGetShipmentPackages()
     {
         $results = $this->trendyol->orderService()->gettingShipmentPackages()->get();
 
@@ -40,7 +40,7 @@ class OrderServiceTest extends TestCase
     }
 
     /** @test */
-    public function testUpdatingPackage()
+    public function testUpdatePackage()
     {
         $request = $this->trendyol->orderService()
             ->updatingPackage()
@@ -85,7 +85,7 @@ class OrderServiceTest extends TestCase
     }
 
     /** @test */
-    public function testSplittingShipmentPackage()
+    public function testSplitShipmentPackage()
     {
         $request = $this->trendyol->orderService()->splittingShipmentPackage()
             ->setShipmentPackageId(11650604)
@@ -105,7 +105,7 @@ class OrderServiceTest extends TestCase
     }
 
     /** @test */
-    public function testSplittingShipmentPackageMulti()
+    public function testSplitShipmentPackageMulti()
     {
         $request = $this->trendyol->orderService()->splittingShipmentPackageMulti()
             ->setShipmentPackageId(11650604)
@@ -131,7 +131,7 @@ class OrderServiceTest extends TestCase
     }
 
     /** @test */
-    public function testSplittingShipmentPackageByQuantity()
+    public function testSplitShipmentPackageByQuantity()
     {
         $request = $this->trendyol->orderService()->splittingShipmentPackageByQuantity()
             ->setShipmentPackageId(11650604)

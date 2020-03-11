@@ -4,6 +4,7 @@ namespace BoolXY\Trendyol\Services;
 
 use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\ApproveClaimLineItemsRequestBuilder;
+use BoolXY\Trendyol\Builders\CreateClaimIssueRequestBuilder;
 use BoolXY\Trendyol\Builders\GetClaimsRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
 use BoolXY\Trendyol\Requests\ClaimService\GetClaimsIssueReasons;
@@ -34,5 +35,13 @@ class ClaimService extends AbstractService implements IService
         $request = GetClaimsIssueReasons::create();
 
         return $this->requestManager->process($request);
+    }
+
+    /**
+     * @return CreateClaimIssueRequestBuilder
+     */
+    public function creatingClaimIssue(): CreateClaimIssueRequestBuilder
+    {
+        return new CreateClaimIssueRequestBuilder($this->requestManager);
     }
 }

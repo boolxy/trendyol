@@ -79,4 +79,15 @@ interface IRequest
      * @return IRequest
      */
     public function addQueryParam(string $key, $value): IRequest;
+
+    /**
+     * @param array $item
+     * @return $this
+     */
+    public function addMultipart(array $item): self;
+
+    /**
+     * @return array
+     */
+    public function getMultipart(): array;
 }

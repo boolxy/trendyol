@@ -9,7 +9,7 @@ Services:
 
 1. Product Service
 2. Order Service
-3. Claim Service (coming soon)
+3. Claim Service
 4. Settlement Service
 
 ## Installation
@@ -275,7 +275,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->split();
 ```
 
-### Claim Service (Unavailable completely yet)
+### Claim Service
 
 #### Get claims
 
@@ -304,7 +304,21 @@ $result = Trendyol::create($user, $pass, $supplier_id)
     ->approve();
 ```
 
-#### Create claim issue (coming soon)
+#### Create claim issue
+
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$result = Trendyol::create($user, $pass, $supplier_id)
+    ->claimService()
+    ->creatingClaimIssue()
+    ->setClaimIssueReasonId(1)
+    ->setClaimId("f9da2317-876b-4b86-b8f7-0535c3b65731")
+    ->setClaimItemIdList("b71461e3-d1a0-4c1d-9a6d-18ecbcb5158c")
+    ->addFile(__DIR__ . '/test.png')
+    // ...
+    ->create();
+```
 
 #### Get claims issue reasons
 
@@ -336,7 +350,7 @@ $results = Trendyol::create($user, $pass, $supplierId)
 
 ## Testing
 
-With reviewing the tests, you can learn more...
+With reviewing the tests, you can learn more about the package.
 For testing: Copy phpunit.xml.dist as phpunit.xml and update it. After then you can start the testing.
 
 ```bash
