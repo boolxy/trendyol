@@ -6,6 +6,7 @@ use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\ApproveClaimLineItemsRequestBuilder;
 use BoolXY\Trendyol\Builders\GetClaimsRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
+use BoolXY\Trendyol\Requests\ClaimService\GetClaimsIssueReasons;
 
 class ClaimService extends AbstractService implements IService
 {
@@ -23,5 +24,15 @@ class ClaimService extends AbstractService implements IService
     public function approvingClaimLineItems(): ApproveClaimLineItemsRequestBuilder
     {
         return new ApproveClaimLineItemsRequestBuilder($this->requestManager);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClaimsIssueReasons()
+    {
+        $request = GetClaimsIssueReasons::create();
+
+        return $this->requestManager->process($request);
     }
 }

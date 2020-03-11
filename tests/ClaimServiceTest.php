@@ -35,4 +35,13 @@ class ClaimServiceTest extends TestCase
             "params" => []
         ], $request->getData());
     }
+
+    /** @test */
+    public function testGetClaimsIssueReasons()
+    {
+        $results = $this->trendyol->claimService()->getClaimsIssueReasons();
+
+        $this->assertIsArray($results);
+        $this->assertGreaterThan(0, count($results));
+    }
 }

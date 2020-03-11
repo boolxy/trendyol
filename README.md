@@ -306,7 +306,15 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 
 #### Create claim issue (coming soon)
 
-#### Get claims issue reasons (coming soon)
+#### Get claims issue reasons
+
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$results = Trendyol::create($user, $pass, $supplierId)
+    ->claimService()
+    ->getClaimsIssueReasons();
+```
 
 ### Settlement Service (Unavailable yet)
 
