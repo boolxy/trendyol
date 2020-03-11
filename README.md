@@ -1,5 +1,7 @@
 # Trendyol PHP Client
 
+![Run Tests Workflow](https://github.com/boolxy/trendyol/workflows/Run%20Tests%20Workflow/badge.svg)
+
 Trendyol is the largest and fastest growing mobile commerce company in Turkey and in the MENA region.
 
 This library is the easiest way to use Trendyol API services in PHP.
