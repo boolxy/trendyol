@@ -327,3 +327,8 @@ composer test
 
 - [Sezai Ozarslan](https://github.com/sezaiozarslan)
 - [All Contributors](https://github.com/boolxy/trendyol/graphs/contributors)
+
+## License
+
+The MIT License (MIT).
+Please see [License File](https://github.com/boolxy/trendyol/blob/master/LICENSE.md) for more information.
