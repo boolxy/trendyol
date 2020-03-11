@@ -62,7 +62,6 @@ class OrderServiceTest extends TestCase
             ],
             "status" => "Invoiced"
         ], $request->getData());
-        $this->assertEquals("suppliers/120874/shipment-packages/11650604", $request->getPath());
     }
 
     /** @test */
@@ -74,7 +73,6 @@ class OrderServiceTest extends TestCase
             ->addData("invoiceLink", "https://extfatura.faturaentegratoru.com/324523-34523-52345-3453245.pdf")
             ->addData("shipmentPackageId", 435346);
 
-        $this->assertEquals("suppliers/12345/supplier-invoice-links", $request->getPath());
         $this->assertEquals([
             "invoiceLink" => "https://extfatura.faturaentegratoru.com/324523-34523-52345-3453245.pdf",
             "shipmentPackageId" => 435346,
@@ -101,7 +99,6 @@ class OrderServiceTest extends TestCase
         $this->assertEquals([
             "orderLineIds" => [ 2, 3, 4 ]
         ], $request->getData());
-        $this->assertEquals("suppliers/120874/shipment-packages/11650604/split", $request->getPath());
     }
 
     /** @test */
@@ -127,7 +124,6 @@ class OrderServiceTest extends TestCase
                 ]
             ],
         ], $request->getData());
-        $this->assertEquals("suppliers/120874/shipment-packages/11650604/multi-split", $request->getPath());
     }
 
     /** @test */
@@ -148,6 +144,5 @@ class OrderServiceTest extends TestCase
                 ],
             ],
         ], $request->getData());
-        $this->assertEquals("suppliers/120874/shipment-packages/11650604/quantity-split", $request->getPath());
     }
 }
