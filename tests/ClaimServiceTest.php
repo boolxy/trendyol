@@ -20,4 +20,19 @@ class ClaimServiceTest extends TestCase
         $this->assertObjectHasAttribute("size", $results);
         $this->assertObjectHasAttribute("content", $results);
     }
+
+    /** @test */
+    public function testApproveClaimLineItems()
+    {
+        $request = $this->trendyol->claimService()->approvingClaimLineItems()
+            ->addClaimItemId("f9da2317-876b-4b86-b8f7-0535c3b65731")
+            ->getRequest();
+
+        $this->assertEquals([
+            "claimLineItemIdList" => [
+                "f9da2317-876b-4b86-b8f7-0535c3b65731"
+            ],
+            "params" => []
+        ], $request->getData());
+    }
 }

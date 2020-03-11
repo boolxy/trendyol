@@ -289,7 +289,16 @@ $result = Trendyol::create($user, $pass, $supplier_id)->claimService()->getClaim
     ->get();
 ```
 
-#### Approve claim line items (coming soon)
+#### Approve claim line items
+
+```php
+use BoolXY\Trendyol\Trendyol;
+
+$result = Trendyol::create($user, $pass, $supplier_id)->claimService()->approvingClaimLineItems()
+    ->addClaimItemId("f9da2317-876b-4b86-b8f7-0535c3b65731")
+    // ...
+    ->approve();
+```
 
 #### Create claim issue (coming soon)
 
