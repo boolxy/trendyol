@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Run Tests Workflow
 
 on:
   push:
@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+
+    name: Running tests
 
     runs-on: ubuntu-latest
 
