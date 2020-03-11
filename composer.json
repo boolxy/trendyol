@@ -1,11 +1,11 @@
 {
     "name": "boolxy/trendyol",
-    "description": "The easiest way for using Trendyol APIs in PHP",
+    "description": "The easiest way for using Trendyol API services in PHP",
     "keywords": [
         "trendyol",
-        "trendyol-apis",
+        "php-api-client",
         "api-client",
-        "php-api-client"
+        "trendyol-apis"
     ],
     "type": "library",
     "require": {
@@ -19,6 +19,7 @@
         "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "^3.5"
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "Sezai Ozarslan",
