@@ -93,8 +93,7 @@ abstract class AbstractRequest implements IRequest
      */
     public function getData(string $key = "")
     {
-        if (empty($key))
-        {
+        if (empty($key)) {
             return $this->data;
         }
         return $this->data[$key] ?? null;
