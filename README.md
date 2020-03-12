@@ -2,6 +2,9 @@
 
 ![Tests](https://github.com/boolxy/trendyol/workflows/Tests/badge.svg?branch=master)
 [![StyleCI](https://github.styleci.io/repos/241877329/shield?branch=master&style=flat)](https://github.styleci.io/repos/241877329)
+[![GitHub stars](https://img.shields.io/github/stars/boolxy/trendyol)](https://github.com/boolxy/trendyol/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/boolxy/trendyol)](https://github.com/boolxy/trendyol/issues)
+[![GitHub license](https://img.shields.io/github/license/boolxy/trendyol)](https://github.com/boolxy/trendyol/blob/master/LICENSE.md)
 
 Trendyol is the largest and fastest growing mobile commerce company in Turkey and in the MENA region.
 
