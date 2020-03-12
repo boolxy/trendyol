@@ -1,6 +1,6 @@
 # Trendyol PHP Client
 
-![build](https://github.com/boolxy/trendyol/workflows/build/badge.svg)
+![Tests](https://github.com/boolxy/trendyol/workflows/Tests/badge.svg?branch=master)
 [![StyleCI](https://github.styleci.io/repos/241877329/shield?branch=master&style=flat)](https://github.styleci.io/repos/241877329)
 
 Trendyol is the largest and fastest growing mobile commerce company in Turkey and in the MENA region.
