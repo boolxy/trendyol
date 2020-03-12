@@ -13,6 +13,7 @@ class AbstractRequestBuilder
 
     /**
      * AbstractRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -22,6 +23,7 @@ class AbstractRequestBuilder
 
     /**
      * @param IRequest $request
+     *
      * @return $this
      */
     public function setRequest(IRequest $request): self

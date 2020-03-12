@@ -8,7 +8,7 @@ use BoolXY\Trendyol\Interfaces\IRequest;
 class GetAttributes extends AbstractRequest implements IRequest
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getMethod(): string
     {
@@ -16,7 +16,7 @@ class GetAttributes extends AbstractRequest implements IRequest
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getPathPattern(): string
     {

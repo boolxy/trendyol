@@ -12,6 +12,7 @@ class CreateProductsRequestBuilder extends AbstractRequestBuilder implements IRe
 {
     /**
      * CreateProductsRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -19,17 +20,18 @@ class CreateProductsRequestBuilder extends AbstractRequestBuilder implements IRe
         parent::__construct($requestManager);
 
         $this->setRequest(CreateProducts::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ]));
     }
 
     /**
      * @param Product $product
+     *
      * @return $this
      */
     public function addProduct(Product $product): self
     {
-        $this->request->addData("items", $product->toArray(), true);
+        $this->request->addData('items', $product->toArray(), true);
 
         return $this;
     }

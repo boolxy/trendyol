@@ -2,8 +2,6 @@
 
 namespace BoolXY\Trendyol\Tests;
 
-use BoolXY\Trendyol\Models\Product;
-
 class ModelTest extends TestCase
 {
     /** @test */

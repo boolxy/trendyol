@@ -12,6 +12,7 @@ class UpdatePackageRequestBuilder extends AbstractRequestBuilder implements IReq
 {
     /**
      * UpdatePackageRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -19,17 +20,18 @@ class UpdatePackageRequestBuilder extends AbstractRequestBuilder implements IReq
         parent::__construct($requestManager);
 
         $this->setRequest(UpdatePackage::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ]));
     }
 
     /**
      * @param int $packageId
+     *
      * @return $this
      */
     public function setPackageId(int $packageId): self
     {
-        $this->request->addQueryParam("id", $packageId);
+        $this->request->addQueryParam('id', $packageId);
 
         return $this;
     }
@@ -37,13 +39,14 @@ class UpdatePackageRequestBuilder extends AbstractRequestBuilder implements IReq
     /**
      * @param int $lineId
      * @param int $quantity
+     *
      * @return $this
      */
     public function addLine(int $lineId, int $quantity): self
     {
-        $this->request->addData("lines", [
-            "lineId" => $lineId,
-            "quantity" => $quantity,
+        $this->request->addData('lines', [
+            'lineId'   => $lineId,
+            'quantity' => $quantity,
         ], true);
 
         return $this;
@@ -52,19 +55,20 @@ class UpdatePackageRequestBuilder extends AbstractRequestBuilder implements IReq
     /**
      * @param string $key
      * @param string $value
+     *
      * @return $this
      */
     public function addParam(string $key, string $value): self
     {
-        $params = $this->request->getData("params");
-        $this->request->addData("params", array_merge($params ?? [], [ $key => $value ]));
+        $params = $this->request->getData('params');
+        $this->request->addData('params', array_merge($params ?? [], [$key => $value]));
 
         return $this;
     }
 
     public function setStatus(ShipmentStatus $status): self
     {
-        $this->request->addData("status", (string) $status);
+        $this->request->addData('status', (string) $status);
 
         return $this;
     }

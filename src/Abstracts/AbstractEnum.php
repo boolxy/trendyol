@@ -8,6 +8,7 @@ class AbstractEnum
 
     /**
      * AbstractEnum constructor.
+     *
      * @param string $choice
      */
     public function __construct(string $choice)
@@ -17,6 +18,7 @@ class AbstractEnum
 
     /**
      * @param $choice
+     *
      * @return static
      */
     public static function create($choice): self

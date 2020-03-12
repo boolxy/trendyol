@@ -14,6 +14,7 @@ abstract class AbstractRequest implements IRequest
 
     /**
      * AbstractRequest constructor.
+     *
      * @param array $data
      * @param array $queryParams
      */
@@ -27,6 +28,7 @@ abstract class AbstractRequest implements IRequest
     /**
      * @param array $data
      * @param array $queryParams
+     *
      * @return static
      */
     public static function create(array $queryParams = [], array $data = []): self
@@ -35,7 +37,8 @@ abstract class AbstractRequest implements IRequest
     }
 
     /**
-     * Returns the path after then replace the variables
+     * Returns the path after then replace the variables.
+     *
      * @return string
      */
     public function getPath(): string
@@ -49,6 +52,7 @@ abstract class AbstractRequest implements IRequest
 
     /**
      * @param string $path
+     *
      * @return string
      */
     private function replaceVariablesWithValues(string $path): string
@@ -65,6 +69,7 @@ abstract class AbstractRequest implements IRequest
 
     /**
      * @param string $path
+     *
      * @return string
      */
     private function removeNonSelectedVariables(string $path): string
@@ -78,6 +83,7 @@ abstract class AbstractRequest implements IRequest
 
     /**
      * @param array $data
+     *
      * @return $this
      */
     public function setData(array $data): self
@@ -89,18 +95,21 @@ abstract class AbstractRequest implements IRequest
 
     /**
      * @param string $key
+     *
      * @return mixed
      */
-    public function getData(string $key = "")
+    public function getData(string $key = '')
     {
         if (empty($key)) {
             return $this->data;
         }
+
         return $this->data[$key] ?? null;
     }
 
     /**
      * @param array $queryParams
+     *
      * @return $this
      */
     public function setQueryParams(array $queryParams): self
@@ -122,6 +131,7 @@ abstract class AbstractRequest implements IRequest
      * @param string $key
      * @param $value
      * @param bool $isNew
+     *
      * @return $this
      */
     public function addData(string $key, $value, bool $isNew = false): self
@@ -138,6 +148,7 @@ abstract class AbstractRequest implements IRequest
     /**
      * @param string $key
      * @param $value
+     *
      * @return $this
      */
     public function addQueryParam(string $key, $value): self
@@ -149,6 +160,7 @@ abstract class AbstractRequest implements IRequest
 
     /**
      * @param array $item
+     *
      * @return $this
      */
     public function addMultipart(array $item): self

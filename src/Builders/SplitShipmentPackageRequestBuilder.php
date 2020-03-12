@@ -11,6 +11,7 @@ class SplitShipmentPackageRequestBuilder extends AbstractRequestBuilder implemen
 {
     /**
      * SplitShipmentPackagesRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -18,28 +19,30 @@ class SplitShipmentPackageRequestBuilder extends AbstractRequestBuilder implemen
         parent::__construct($requestManager);
 
         $this->setRequest(SplitShipmentPackage::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ]));
     }
 
     /**
      * @param int $shipmentPackageId
+     *
      * @return $this
      */
     public function setShipmentPackageId(int $shipmentPackageId): self
     {
-        $this->request->addQueryParam("shipmentPackageId", $shipmentPackageId);
+        $this->request->addQueryParam('shipmentPackageId', $shipmentPackageId);
 
         return $this;
     }
 
     /**
      * @param int $orderLineId
+     *
      * @return $this
      */
     public function addOrderLineId(int $orderLineId): self
     {
-        $this->request->addData("orderLineIds", $orderLineId, true);
+        $this->request->addData('orderLineIds', $orderLineId, true);
 
         return $this;
     }

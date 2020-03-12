@@ -6,13 +6,7 @@ use BoolXY\Trendyol\Abstracts\AbstractService;
 use BoolXY\Trendyol\Builders\CreateProductsRequestBuilder;
 use BoolXY\Trendyol\Builders\GetProductsRequestBuilder;
 use BoolXY\Trendyol\Builders\UpdatePriceAndInventoryRequestBuilder;
-use BoolXY\Trendyol\Interfaces\IParameters;
-use BoolXY\Trendyol\Interfaces\IRequestBuilder;
 use BoolXY\Trendyol\Interfaces\IService;
-use BoolXY\Trendyol\ParameterFactory;
-use BoolXY\Trendyol\Parameters\CreateProductsParameters;
-use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\ProductService\CreateProducts;
 use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
 use BoolXY\Trendyol\Requests\ProductService\GetBatchRequestResult;
 use BoolXY\Trendyol\Requests\ProductService\GetBrands;
@@ -21,42 +15,46 @@ use BoolXY\Trendyol\Requests\ProductService\GetCategories;
 use BoolXY\Trendyol\Requests\ProductService\GetProducts;
 use BoolXY\Trendyol\Requests\ProductService\GetProviders;
 use BoolXY\Trendyol\Requests\ProductService\GetSuppliersAddresses;
-use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 
 class ProductService extends AbstractService implements IService
 {
     /**
-     * Get brands
+     * Get brands.
+     *
      * @param int $page
      * @param int $size
+     *
      * @return mixed
      */
     public function getBrands(int $page = 1, int $size = 10)
     {
         $request = GetBrands::create([
-            "page" => $page,
-            "size" => $size,
+            'page' => $page,
+            'size' => $size,
         ]);
 
         return $this->requestManager->process($request);
     }
 
     /**
-     * Get brands by name
+     * Get brands by name.
+     *
      * @param string $name
+     *
      * @return mixed
      */
     public function getBrandsByName(string $name)
     {
         $request = GetBrandsByName::create([
-            "name" => $name,
+            'name' => $name,
         ]);
 
         return $this->requestManager->process($request);
     }
 
     /**
-     * Get categories
+     * Get categories.
+     *
      * @return mixed
      */
     public function getCategories()
@@ -67,21 +65,24 @@ class ProductService extends AbstractService implements IService
     }
 
     /**
-     * Get attributes by categoryId
+     * Get attributes by categoryId.
+     *
      * @param int $categoryId
+     *
      * @return mixed
      */
     public function getAttributes(int $categoryId)
     {
         $request = GetAttributes::create([
-            "categoryId" => $categoryId,
+            'categoryId' => $categoryId,
         ]);
 
         return $this->requestManager->process($request);
     }
 
     /**
-     * Get shipment providers
+     * Get shipment providers.
+     *
      * @return mixed
      */
     public function getProviders()
@@ -92,14 +93,15 @@ class ProductService extends AbstractService implements IService
     }
 
     /**
-     * Get suppliers addresses
+     * Get suppliers addresses.
+     *
      * @return mixed
      */
     public function getSuppliersAddresses()
     {
         $supplierId = $this->requestManager->getClient()->getSupplierId();
         $request = GetSuppliersAddresses::create([
-            "supplierId" => $supplierId,
+            'supplierId' => $supplierId,
         ]);
 
         return $this->requestManager->process($request);
@@ -107,16 +109,18 @@ class ProductService extends AbstractService implements IService
 
     /**
      * Get batch request result
-     * for queues like product creation or updating price and inventory
+     * for queues like product creation or updating price and inventory.
+     *
      * @param string $batchRequestId
+     *
      * @return mixed
      */
     public function getBatchRequestResult(string $batchRequestId)
     {
         $supplierId = $this->requestManager->getClient()->getSupplierId();
         $request = GetBatchRequestResult::create([
-            "supplierId" => $supplierId,
-            "batchRequestId" => $batchRequestId,
+            'supplierId'     => $supplierId,
+            'batchRequestId' => $batchRequestId,
         ]);
 
         return $this->requestManager->process($request);
@@ -128,7 +132,7 @@ class ProductService extends AbstractService implements IService
     public function getProducts()
     {
         $request = GetProducts::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ]);
 
         return $this->requestManager->process($request);

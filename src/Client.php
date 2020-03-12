@@ -1,6 +1,5 @@
 <?php
 
-
 namespace BoolXY\Trendyol;
 
 class Client extends \GuzzleHttp\Client
@@ -15,14 +14,14 @@ class Client extends \GuzzleHttp\Client
 
     public function __construct(string $user, string $pass, string $supplier_id)
     {
-        $this->base_uri = getenv("TRENDYOL_BASE_URI");
+        $this->base_uri = getenv('TRENDYOL_BASE_URI');
         $this->user = $user;
         $this->pass = $pass;
         $this->supplier_id = $supplier_id;
 
         parent::__construct([
-            "base_uri" => $this->base_uri,
-            "auth" => [$this->user, $this->pass],
+            'base_uri' => $this->base_uri,
+            'auth'     => [$this->user, $this->pass],
         ]);
     }
 

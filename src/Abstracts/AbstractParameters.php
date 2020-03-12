@@ -26,6 +26,7 @@ abstract class AbstractParameters implements IParameters
 
     /**
      * @param string $key
+     *
      * @return bool
      */
     public function has(string $key): bool
@@ -35,6 +36,7 @@ abstract class AbstractParameters implements IParameters
 
     /**
      * @param string $key
+     *
      * @return mixed
      */
     public function get(string $key = null)
