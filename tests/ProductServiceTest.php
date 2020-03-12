@@ -10,14 +10,14 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->getBrands(1, 3);
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("brands", $results);
+        $this->assertObjectHasAttribute('brands', $results);
         $this->assertCount(3, $results->brands);
     }
 
     /** @test */
     public function testGetBrandsByName()
     {
-        $results = $this->trendyol->productService()->getBrandsByName("TRENDYOL");
+        $results = $this->trendyol->productService()->getBrandsByName('TRENDYOL');
 
         $this->assertIsArray($results);
         $this->assertTrue(count($results) > 0);
@@ -29,7 +29,7 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->getCategories();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("categories", $results);
+        $this->assertObjectHasAttribute('categories', $results);
     }
 
     /** @test */
@@ -38,7 +38,7 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->getAttributes(387);
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("categoryAttributes", $results);
+        $this->assertObjectHasAttribute('categoryAttributes', $results);
         $this->assertTrue(count($results->categoryAttributes) > 0);
     }
 
@@ -57,10 +57,10 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->getSuppliersAddresses();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("supplierAddresses", $results);
-        $this->assertObjectHasAttribute("defaultShipmentAddress", $results);
-        $this->assertObjectHasAttribute("defaultInvoiceAddress", $results);
-        $this->assertObjectHasAttribute("defaultReturningAddress", $results);
+        $this->assertObjectHasAttribute('supplierAddresses', $results);
+        $this->assertObjectHasAttribute('defaultShipmentAddress', $results);
+        $this->assertObjectHasAttribute('defaultInvoiceAddress', $results);
+        $this->assertObjectHasAttribute('defaultReturningAddress', $results);
     }
 
     /** @test */
@@ -69,8 +69,8 @@ class ProductServiceTest extends TestCase
         $batchRequestId = '5631d1a1-ec81-496f-9407-99876554433-1529820717'; // Example
         $results = $this->trendyol->productService()->getBatchRequestResult($batchRequestId);
 
-        $this->assertObjectHasAttribute("batchRequestId", $results);
-        $this->assertObjectHasAttribute("items", $results);
+        $this->assertObjectHasAttribute('batchRequestId', $results);
+        $this->assertObjectHasAttribute('items', $results);
         $this->assertIsArray($results->items);
     }
 
@@ -80,11 +80,11 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->getProducts();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("totalElements", $results);
-        $this->assertObjectHasAttribute("totalPages", $results);
-        $this->assertObjectHasAttribute("page", $results);
-        $this->assertObjectHasAttribute("size", $results);
-        $this->assertObjectHasAttribute("content", $results);
+        $this->assertObjectHasAttribute('totalElements', $results);
+        $this->assertObjectHasAttribute('totalPages', $results);
+        $this->assertObjectHasAttribute('page', $results);
+        $this->assertObjectHasAttribute('size', $results);
+        $this->assertObjectHasAttribute('content', $results);
         $this->assertIsArray($results->content);
     }
 
@@ -94,11 +94,11 @@ class ProductServiceTest extends TestCase
         $results = $this->trendyol->productService()->gettingProducts()->get();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("totalElements", $results);
-        $this->assertObjectHasAttribute("totalPages", $results);
-        $this->assertObjectHasAttribute("page", $results);
-        $this->assertObjectHasAttribute("size", $results);
-        $this->assertObjectHasAttribute("content", $results);
+        $this->assertObjectHasAttribute('totalElements', $results);
+        $this->assertObjectHasAttribute('totalPages', $results);
+        $this->assertObjectHasAttribute('page', $results);
+        $this->assertObjectHasAttribute('size', $results);
+        $this->assertObjectHasAttribute('content', $results);
         $this->assertIsArray($results->content);
     }
 
@@ -107,11 +107,11 @@ class ProductServiceTest extends TestCase
     {
         $results = $this->trendyol->productService()
             ->updatingPriceAndInventory()
-            ->addItem("8680000000", 100, 112.85, 113.85)
+            ->addItem('8680000000', 100, 112.85, 113.85)
             ->update();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("batchRequestId", $results);
+        $this->assertObjectHasAttribute('batchRequestId', $results);
     }
 
     /** @test */
@@ -123,6 +123,6 @@ class ProductServiceTest extends TestCase
             ->create();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("batchRequestId", $results);
+        $this->assertObjectHasAttribute('batchRequestId', $results);
     }
 }

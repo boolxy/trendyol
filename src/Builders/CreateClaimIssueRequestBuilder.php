@@ -11,6 +11,7 @@ class CreateClaimIssueRequestBuilder extends AbstractRequestBuilder implements I
 {
     /**
      * CreateClaimIssueRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -22,46 +23,50 @@ class CreateClaimIssueRequestBuilder extends AbstractRequestBuilder implements I
 
     /**
      * @param string $claimId
+     *
      * @return $this
      */
     public function setClaimId(string $claimId): self
     {
-        $this->request->addQueryParam("claimId", $claimId);
+        $this->request->addQueryParam('claimId', $claimId);
 
         return $this;
     }
 
     /**
      * @param int $claimIssueReasonId
+     *
      * @return $this
      */
     public function setClaimIssueReasonId(int $claimIssueReasonId): self
     {
-        $this->request->addQueryParam("claimIssueReasonId", $claimIssueReasonId);
+        $this->request->addQueryParam('claimIssueReasonId', $claimIssueReasonId);
 
         return $this;
     }
 
     /**
      * @param string $claimItemIdList
+     *
      * @return $this
      */
     public function setClaimItemIdList(string $claimItemIdList): self
     {
-        $this->request->addQueryParam("claimItemIdList", $claimItemIdList);
+        $this->request->addQueryParam('claimItemIdList', $claimItemIdList);
 
         return $this;
     }
 
     /**
      * @param string $path
+     *
      * @return $this
      */
     public function addFile(string $path): self
     {
         $this->request->addMultipart([
-            "name" => basename($path),
-            "contents" => fopen($path, "r")
+            'name'     => basename($path),
+            'contents' => fopen($path, 'r'),
         ]);
 
         return $this;

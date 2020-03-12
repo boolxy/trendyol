@@ -16,10 +16,10 @@ class SettlementServiceTest extends TestCase
             ->get();
 
         $this->assertIsObject($results);
-        $this->assertObjectHasAttribute("totalElements", $results);
-        $this->assertObjectHasAttribute("totalPages", $results);
-        $this->assertObjectHasAttribute("page", $results);
-        $this->assertObjectHasAttribute("size", $results);
-        $this->assertObjectHasAttribute("content", $results);
+        $this->assertObjectHasAttribute('totalElements', $results);
+        $this->assertObjectHasAttribute('totalPages', $results);
+        $this->assertObjectHasAttribute('page', $results);
+        $this->assertObjectHasAttribute('size', $results);
+        $this->assertObjectHasAttribute('content', $results);
     }
 }

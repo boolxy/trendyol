@@ -11,6 +11,7 @@ class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder imple
 {
     /**
      * UpdatePriceAndInventoryRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -18,24 +19,25 @@ class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder imple
         parent::__construct($requestManager);
 
         $this->setRequest(UpdatePriceAndInventory::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ]));
     }
 
     /**
      * @param string $barcode
-     * @param int $quantity
-     * @param float $salePrice
-     * @param float $listPrice
+     * @param int    $quantity
+     * @param float  $salePrice
+     * @param float  $listPrice
+     *
      * @return UpdatePriceAndInventoryRequestBuilder
      */
     public function addItem(string $barcode, int $quantity, float $salePrice, float $listPrice)
     {
-        $this->request->addData("items", [
-            "barcode" => $barcode,
-            "quantity" => $quantity,
-            "salePrice" => $salePrice,
-            "listPrice" => $listPrice,
+        $this->request->addData('items', [
+            'barcode'   => $barcode,
+            'quantity'  => $quantity,
+            'salePrice' => $salePrice,
+            'listPrice' => $listPrice,
         ], true);
 
         return $this;

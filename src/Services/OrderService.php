@@ -23,17 +23,18 @@ class OrderService extends AbstractService implements IService
     }
 
     /**
-     * @param int $shipmentPackageId
+     * @param int    $shipmentPackageId
      * @param string $trackingNumber
+     *
      * @return mixed
      */
     public function updateTrackingNumber(int $shipmentPackageId, string $trackingNumber)
     {
         $request = UpdateTrackingNumber::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
-            "shipmentPackageId" => $shipmentPackageId,
+            'supplierId'        => $this->requestManager->getClient()->getSupplierId(),
+            'shipmentPackageId' => $shipmentPackageId,
         ], [
-            "trackingNumber" => $trackingNumber,
+            'trackingNumber' => $trackingNumber,
         ]);
 
         return $this->requestManager->process($request);
@@ -49,16 +50,17 @@ class OrderService extends AbstractService implements IService
 
     /**
      * @param string $invoiceLink
-     * @param int $shipmentPackageId
+     * @param int    $shipmentPackageId
+     *
      * @return mixed
      */
     public function sendInvoiceLink(string $invoiceLink, int $shipmentPackageId)
     {
         $request = SendInvoiceLink::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ])
-            ->addData("invoiceLink", $invoiceLink)
-            ->addData("shipmentPackageId", $shipmentPackageId);
+            ->addData('invoiceLink', $invoiceLink)
+            ->addData('shipmentPackageId', $shipmentPackageId);
 
         return $this->requestManager->process($request);
     }

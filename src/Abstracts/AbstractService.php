@@ -10,6 +10,7 @@ abstract class AbstractService
 
     /**
      * AbstractService constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)

@@ -11,6 +11,7 @@ class RequestManager
 
     /**
      * RequestManager constructor.
+     *
      * @param Client $client
      */
     public function __construct(Client $client)
@@ -19,8 +20,10 @@ class RequestManager
     }
 
     /**
-     * Process the request
+     * Process the request.
+     *
      * @param IRequest $request
+     *
      * @return mixed
      */
     public function process(IRequest $request)
@@ -32,11 +35,11 @@ class RequestManager
 
         $response = $this->client->$method($path, [
             RequestOptions::SYNCHRONOUS => false,
-            RequestOptions::HEADERS => [
-                "Accept" => "application/json",
-                "Content-Type" => "application/json",
+            RequestOptions::HEADERS     => [
+                'Accept'       => 'application/json',
+                'Content-Type' => 'application/json',
             ],
-            RequestOptions::JSON => $data,
+            RequestOptions::JSON      => $data,
             RequestOptions::MULTIPART => $multipart,
         ]);
 

@@ -12,6 +12,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
 {
     /**
      * GetProductsRequestBuilder constructor.
+     *
      * @param RequestManager $requestManager
      */
     public function __construct(RequestManager $requestManager)
@@ -19,83 +20,90 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
         parent::__construct($requestManager);
 
         $this->setRequest(GetProducts::create([
-            "supplierId" => $this->requestManager->getClient()->getSupplierId(),
+            'supplierId' => $this->requestManager->getClient()->getSupplierId(),
         ]));
     }
 
     /**
      * @param bool $is
+     *
      * @return $this
      */
     public function approved(bool $is): self
     {
-        $this->request->addData("approved", $is ? "true" : "false");
+        $this->request->addData('approved', $is ? 'true' : 'false');
 
         return $this;
     }
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function barcode(string $barcode): self
     {
-        $this->request->addData("barcode", $barcode);
+        $this->request->addData('barcode', $barcode);
 
         return $this;
     }
 
     /**
      * @param int $timestamp
+     *
      * @return $this
      */
     public function startDate(int $timestamp): self
     {
-        $this->request->addData("startDate", $timestamp);
+        $this->request->addData('startDate', $timestamp);
 
         return $this;
     }
 
     /**
      * @param int $timestamp
+     *
      * @return $this
      */
     public function endDate(int $timestamp): self
     {
-        $this->request->addData("endDate", $timestamp);
+        $this->request->addData('endDate', $timestamp);
 
         return $this;
     }
 
     /**
      * @param int $pageNumber
+     *
      * @return $this
      */
     public function page(int $pageNumber): self
     {
-        $this->request->addData("page", $pageNumber);
+        $this->request->addData('page', $pageNumber);
 
         return $this;
     }
 
     /**
      * @param DataQueryType $dataQueryType
+     *
      * @return $this
      */
     public function dataQueryType(DataQueryType $dataQueryType): self
     {
-        $this->request->addData("dataQueryType", (string) $dataQueryType);
+        $this->request->addData('dataQueryType', (string) $dataQueryType);
 
         return $this;
     }
 
     /**
      * @param int $size
+     *
      * @return $this
      */
     public function size(int $size): self
     {
-        $this->request->addData("size", $size);
+        $this->request->addData('size', $size);
 
         return $this;
     }

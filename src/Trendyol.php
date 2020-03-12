@@ -2,10 +2,10 @@
 
 namespace BoolXY\Trendyol;
 
-use BoolXY\Trendyol\Services\SettlementService;
 use BoolXY\Trendyol\Services\ClaimService;
 use BoolXY\Trendyol\Services\OrderService;
 use BoolXY\Trendyol\Services\ProductService;
+use BoolXY\Trendyol\Services\SettlementService;
 
 class Trendyol
 {
@@ -13,6 +13,7 @@ class Trendyol
 
     /**
      * Trendyol constructor.
+     *
      * @param string $user
      * @param string $pass
      * @param string $supplier_id
@@ -28,6 +29,7 @@ class Trendyol
      * @param string $user
      * @param string $pass
      * @param string $supplier_id
+     *
      * @return static
      */
     public static function create(string $user, string $pass, string $supplier_id)

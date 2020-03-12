@@ -2,11 +2,11 @@
 
 namespace BoolXY\Trendyol\Tests;
 
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\Services\ProductService;
-use BoolXY\Trendyol\Services\OrderService;
 use BoolXY\Trendyol\Services\ClaimService;
+use BoolXY\Trendyol\Services\OrderService;
+use BoolXY\Trendyol\Services\ProductService;
 use BoolXY\Trendyol\Services\SettlementService;
+use BoolXY\Trendyol\Trendyol;
 
 class TrendyolTest extends TestCase
 {
