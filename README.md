@@ -1,5 +1,6 @@
 # Trendyol PHP Client
 
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/boolxy/trendyol?include_prereleases)
 ![Tests](https://github.com/boolxy/trendyol/workflows/Tests/badge.svg?branch=master)
 [![StyleCI](https://github.styleci.io/repos/241877329/shield?branch=master&style=flat)](https://github.styleci.io/repos/241877329)
 [![GitHub stars](https://img.shields.io/github/stars/boolxy/trendyol)](https://github.com/boolxy/trendyol/stargazers)
