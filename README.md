@@ -12,10 +12,10 @@ If you are a Trendyol partner and use PHP programming language on your own websi
 
 Services:
 
-1. Product Service
-2. Order Service
-3. Claim Service
-4. Settlement Service
+- Product Service
+- Order Service
+- Claim Service
+- Settlement Service
 
 ## Installation
 
