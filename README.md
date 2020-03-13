@@ -353,20 +353,28 @@ $results = Trendyol::create($user, $pass, $supplierId)
     ->get();
 ```
 
-## Testing
+## Composer scripts
 
 With reviewing the tests, you can learn more about the package.
-For testing: Copy phpunit.xml.dist as phpunit.xml and update it. After then you can start the testing.
+Before testing: Copy phpunit.xml.dist as phpunit.xml and update it. After then you can start the testing.
 
-```bash
-vendor/bin/phpunit
-```
+- Run the tests
+    ```bash
+    composer test
+    ```
 
-or
+- Check for PSR-2 standards
+    ```bash
+    composer check
+    ```
 
-```bash
-composer test
-```
+- Apply PSR-2 standards
+    ```bash
+    composer fix
+    ```
+
+## API Documentation
+- https://developers.trendyol.com/
 
 ## Credits
 
