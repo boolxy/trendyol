@@ -3,9 +3,9 @@
     "description": "The easiest way for using Trendyol API services in PHP",
     "keywords": [
         "trendyol",
-        "php-api-client",
-        "api-client",
-        "trendyol-apis"
+        "trendyol-api-client",
+        "trendyol-api-services",
+        "php"
     ],
     "type": "library",
     "require": {
