@@ -5,6 +5,8 @@
 [![Latest Stable Version](https://poser.pugx.org/boolxy/trendyol/v/stable?format=flat)](https://packagist.org/packages/boolxy/trendyol)
 [![License](https://poser.pugx.org/boolxy/trendyol/license?format=flat)](https://packagist.org/packages/boolxy/trendyol)
 
+Developed according to SOLID principles.
+
 Trendyol is the largest and fastest growing mobile commerce company in Turkey and in the MENA region.
 
 This library is the easiest way to use Trendyol API services in PHP.
