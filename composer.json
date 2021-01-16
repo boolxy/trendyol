@@ -10,7 +10,7 @@
     "type": "library",
     "require": {
         "ext-json": "*",
-        "php": "^7.4",
+        "php": "*",
         "guzzlehttp/guzzle": "^6.5",
         "illuminate/support": "^7.0"
     },
