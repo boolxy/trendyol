@@ -9,13 +9,13 @@
     ],
     "type": "library",
     "require": {
-        "ext-json": "^7.4",
-        "php": "^7.4",
+        "ext-json": "*",
+        "php": "^7.4 || ^8",
         "guzzlehttp/guzzle": "^6.5",
         "illuminate/support": "^7.0"
     },
     "require-dev": {
-        "ext-mbstring": "^7.4",
+        "ext-mbstring": "*",
         "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "^3.5"
     },
