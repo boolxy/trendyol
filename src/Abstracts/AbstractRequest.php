@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol\Abstracts;
+namespace Boolxy\Trendyol\Abstracts;
 
-use BoolXY\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\Interfaces\IRequest;
 
 abstract class AbstractRequest implements IRequest
 {

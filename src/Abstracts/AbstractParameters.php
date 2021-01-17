@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol\Abstracts;
+namespace Boolxy\Trendyol\Abstracts;
 
-use BoolXY\Trendyol\Interfaces\IParameters;
+use Boolxy\Trendyol\Interfaces\IParameters;
 
 abstract class AbstractParameters implements IParameters
 {

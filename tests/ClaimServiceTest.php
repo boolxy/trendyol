@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol\Tests;
+namespace Boolxy\Trendyol\Tests;
 
-use BoolXY\Trendyol\Enums\ClaimItemStatus;
+use Boolxy\Trendyol\Enums\ClaimItemStatus;
 
 class ClaimServiceTest extends TestCase
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace BoolXY\Trendyol;
+namespace Boolxy\Trendyol;
 
-use BoolXY\Trendyol\Services\ClaimService;
-use BoolXY\Trendyol\Services\OrderService;
-use BoolXY\Trendyol\Services\ProductService;
-use BoolXY\Trendyol\Services\SettlementService;
+use Boolxy\Trendyol\Services\ClaimService;
+use Boolxy\Trendyol\Services\OrderService;
+use Boolxy\Trendyol\Services\ProductService;
+use Boolxy\Trendyol\Services\SettlementService;
 
 class Trendyol
 {

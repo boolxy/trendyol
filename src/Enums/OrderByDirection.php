@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Enums;
+namespace Boolxy\Trendyol\Enums;
 
-use BoolXY\Trendyol\Abstracts\AbstractEnum;
-use BoolXY\Trendyol\Interfaces\IEnum;
+use Boolxy\Trendyol\Abstracts\AbstractEnum;
+use Boolxy\Trendyol\Interfaces\IEnum;
 
 final class OrderByDirection extends AbstractEnum implements IEnum
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol\Tests;
+namespace Boolxy\Trendyol\Tests;
 
-use BoolXY\Trendyol\Enums\SettlementDateType;
+use Boolxy\Trendyol\Enums\SettlementDateType;
 
 class SettlementServiceTest extends TestCase
 {

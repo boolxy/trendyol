@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Requests\ClaimService;
+namespace Boolxy\Trendyol\Requests\ClaimService;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequest;
-use BoolXY\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\Abstracts\AbstractRequest;
+use Boolxy\Trendyol\Interfaces\IRequest;
 
 class GetClaims extends AbstractRequest implements IRequest
 {

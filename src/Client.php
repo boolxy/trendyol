@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol;
+namespace Boolxy\Trendyol;
 
 class Client extends \GuzzleHttp\Client
 {

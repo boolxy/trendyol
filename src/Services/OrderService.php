@@ -1,16 +1,16 @@
 <?php
 
-namespace BoolXY\Trendyol\Services;
+namespace Boolxy\Trendyol\Services;
 
-use BoolXY\Trendyol\Abstracts\AbstractService;
-use BoolXY\Trendyol\Builders\GetShipmentPackagesRequestBuilder;
-use BoolXY\Trendyol\Builders\SplitShipmentPackageByQuantityRequestBuilder;
-use BoolXY\Trendyol\Builders\SplitShipmentPackageMultiRequestBuilder;
-use BoolXY\Trendyol\Builders\SplitShipmentPackageRequestBuilder;
-use BoolXY\Trendyol\Builders\UpdatePackageRequestBuilder;
-use BoolXY\Trendyol\Interfaces\IService;
-use BoolXY\Trendyol\Requests\OrderService\SendInvoiceLink;
-use BoolXY\Trendyol\Requests\OrderService\UpdateTrackingNumber;
+use Boolxy\Trendyol\Abstracts\AbstractService;
+use Boolxy\Trendyol\Builders\GetShipmentPackagesRequestBuilder;
+use Boolxy\Trendyol\Builders\SplitShipmentPackageByQuantityRequestBuilder;
+use Boolxy\Trendyol\Builders\SplitShipmentPackageMultiRequestBuilder;
+use Boolxy\Trendyol\Builders\SplitShipmentPackageRequestBuilder;
+use Boolxy\Trendyol\Builders\UpdatePackageRequestBuilder;
+use Boolxy\Trendyol\Interfaces\IService;
+use Boolxy\Trendyol\Requests\OrderService\SendInvoiceLink;
+use Boolxy\Trendyol\Requests\OrderService\UpdateTrackingNumber;
 
 class OrderService extends AbstractService implements IService
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Requests\OrderService;
+namespace Boolxy\Trendyol\Requests\OrderService;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequest;
-use BoolXY\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\Abstracts\AbstractRequest;
+use Boolxy\Trendyol\Interfaces\IRequest;
 
 class SplitShipmentPackage extends AbstractRequest implements IRequest
 {

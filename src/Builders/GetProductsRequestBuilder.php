@@ -1,12 +1,12 @@
 <?php
 
-namespace BoolXY\Trendyol\Builders;
+namespace Boolxy\Trendyol\Builders;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
-use BoolXY\Trendyol\Enums\DataQueryType;
-use BoolXY\Trendyol\Interfaces\IRequestBuilder;
-use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\ProductService\GetProducts;
+use Boolxy\Trendyol\Abstracts\AbstractRequestBuilder;
+use Boolxy\Trendyol\Enums\DataQueryType;
+use Boolxy\Trendyol\Interfaces\IRequestBuilder;
+use Boolxy\Trendyol\RequestManager;
+use Boolxy\Trendyol\Requests\ProductService\GetProducts;
 
 class GetProductsRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {

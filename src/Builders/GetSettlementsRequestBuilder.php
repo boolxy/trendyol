@@ -1,13 +1,13 @@
 <?php
 
-namespace BoolXY\Trendyol\Builders;
+namespace Boolxy\Trendyol\Builders;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
-use BoolXY\Trendyol\Enums\SettlementDateType;
-use BoolXY\Trendyol\Enums\SettlementTransactionType;
-use BoolXY\Trendyol\Interfaces\IRequestBuilder;
-use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\SettlementService\GetSettlements;
+use Boolxy\Trendyol\Abstracts\AbstractRequestBuilder;
+use Boolxy\Trendyol\Enums\SettlementDateType;
+use Boolxy\Trendyol\Enums\SettlementTransactionType;
+use Boolxy\Trendyol\Interfaces\IRequestBuilder;
+use Boolxy\Trendyol\RequestManager;
+use Boolxy\Trendyol\Requests\SettlementService\GetSettlements;
 
 class GetSettlementsRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {

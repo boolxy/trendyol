@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol\Tests;
+namespace Boolxy\Trendyol\Tests;
 
 class ModelTest extends TestCase
 {

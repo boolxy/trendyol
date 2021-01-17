@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol\Enums;
+namespace Boolxy\Trendyol\Enums;
 
 class SettlementTransactionType
 {

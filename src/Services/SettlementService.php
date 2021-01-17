@@ -1,10 +1,10 @@
 <?php
 
-namespace BoolXY\Trendyol\Services;
+namespace Boolxy\Trendyol\Services;
 
-use BoolXY\Trendyol\Abstracts\AbstractService;
-use BoolXY\Trendyol\Builders\GetSettlementsRequestBuilder;
-use BoolXY\Trendyol\Interfaces\IService;
+use Boolxy\Trendyol\Abstracts\AbstractService;
+use Boolxy\Trendyol\Builders\GetSettlementsRequestBuilder;
+use Boolxy\Trendyol\Interfaces\IService;
 
 class SettlementService extends AbstractService implements IService
 {

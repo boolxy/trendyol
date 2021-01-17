@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol\Interfaces;
+namespace Boolxy\Trendyol\Interfaces;
 
 interface IRequest
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Requests\ProductService;
+namespace Boolxy\Trendyol\Requests\ProductService;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequest;
-use BoolXY\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\Abstracts\AbstractRequest;
+use Boolxy\Trendyol\Interfaces\IRequest;
 
 class GetCategories extends AbstractRequest implements IRequest
 {

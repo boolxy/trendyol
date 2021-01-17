@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol;
+namespace Boolxy\Trendyol;
 
-use BoolXY\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\Interfaces\IRequest;
 use GuzzleHttp\RequestOptions;
 
 class RequestManager

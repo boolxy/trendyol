@@ -1,14 +1,14 @@
 <?php
 
-namespace BoolXY\Trendyol\Builders;
+namespace Boolxy\Trendyol\Builders;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
-use BoolXY\Trendyol\Enums\OrderByDirection;
-use BoolXY\Trendyol\Enums\ShipmentOrderBy;
-use BoolXY\Trendyol\Enums\ShipmentStatus;
-use BoolXY\Trendyol\Interfaces\IRequestBuilder;
-use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\OrderService\GetShipmentPackages;
+use Boolxy\Trendyol\Abstracts\AbstractRequestBuilder;
+use Boolxy\Trendyol\Enums\OrderByDirection;
+use Boolxy\Trendyol\Enums\ShipmentOrderBy;
+use Boolxy\Trendyol\Enums\ShipmentStatus;
+use Boolxy\Trendyol\Interfaces\IRequestBuilder;
+use Boolxy\Trendyol\RequestManager;
+use Boolxy\Trendyol\Requests\OrderService\GetShipmentPackages;
 
 class GetShipmentPackagesRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {

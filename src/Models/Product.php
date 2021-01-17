@@ -1,8 +1,8 @@
 <?php
 
-namespace BoolXY\Trendyol\Models;
+namespace Boolxy\Trendyol\Models;
 
-use BoolXY\Trendyol\Abstracts\AbstractModel;
+use Boolxy\Trendyol\Abstracts\AbstractModel;
 
 class Product extends AbstractModel
 {

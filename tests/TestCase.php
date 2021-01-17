@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Tests;
+namespace Boolxy\Trendyol\Tests;
 
-use BoolXY\Trendyol\Models\Product;
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Models\Product;
+use Boolxy\Trendyol\Trendyol;
 use Illuminate\Support\Str;
 
 class TestCase extends \PHPUnit\Framework\TestCase

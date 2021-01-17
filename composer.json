@@ -28,12 +28,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "BoolXY\\Trendyol\\": "src/"
+            "Boolxy\\Trendyol\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BoolXY\\Trendyol\\Tests\\": "tests/"
+            "Boolxy\\Trendyol\\Tests\\": "tests/"
         }
     },
     "scripts": {

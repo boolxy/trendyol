@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol\Traits;
+namespace Boolxy\Trendyol\Traits;
 
 trait TJsonable
 {

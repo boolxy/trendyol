@@ -32,7 +32,7 @@ composer require boolxy/trendyol
 #### Get brands
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -42,7 +42,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get brands by name
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -52,7 +52,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get categories
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -62,7 +62,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get attributes by categoryId
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $categoryId = 387;
 
@@ -74,7 +74,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get shipment providers
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -84,7 +84,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get suppliers addresses
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -94,7 +94,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get batch request result
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $batchRequestId = '5631d1a1-ec81-496f-9407-99876554433-1529820717';
 
@@ -106,7 +106,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Get products
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -116,8 +116,8 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 with filters:
 
 ```php
-use BoolXY\Trendyol\Trendyol;                          
-use BoolXY\Trendyol\Enums\DataQueryType;
+use Boolxy\Trendyol\Trendyol;                          
+use Boolxy\Trendyol\Enums\DataQueryType;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
@@ -133,7 +133,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Update price and inventory
 
 ```php
-use BoolXY\Trendyol\Trendyol;                      
+use Boolxy\Trendyol\Trendyol;                      
 
 $items = [
     [
@@ -164,8 +164,8 @@ $results = $service->update();
 #### Create your own products on Trendyol
 
 ```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\Models\Product;
+use Boolxy\Trendyol\Trendyol;
+use Boolxy\Trendyol\Models\Product;
 
 $attributes = [ /* ... */ ];
 
@@ -192,10 +192,10 @@ $result = $service->create();
 #### Get shipment packages
 
 ```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\Enums\ShipmentOrderBy;
-use BoolXY\Trendyol\Enums\ShipmentStatus;
-use BoolXY\Trendyol\Enums\OrderByDirection;
+use Boolxy\Trendyol\Trendyol;
+use Boolxy\Trendyol\Enums\ShipmentOrderBy;
+use Boolxy\Trendyol\Enums\ShipmentStatus;
+use Boolxy\Trendyol\Enums\OrderByDirection;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->orderService()
@@ -212,7 +212,7 @@ $results = Trendyol::create($user, $pass, $supplier_id)
 #### Update tracking number
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $shipmentPackageId = 11650604;
 $trackingNumber = "7340447182689";
@@ -225,7 +225,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 #### Send invoice link
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $shipmentPackageId = 11650604;
 $invoiceLink = "https://extfatura.faturaentegratoru.com/324523-34523-52345-3453245.pdf";
@@ -238,7 +238,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 #### Splitting shipment package
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $result = Trendyol::create($user, $pass, $supplier_id)
     ->orderService()
@@ -254,7 +254,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 multi
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $result = Trendyol::create($user, $pass, $supplier_id)
     ->orderService()
@@ -269,7 +269,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 by quantity
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $result = Trendyol::create($user, $pass, $supplier_id)
     ->orderService()
@@ -285,8 +285,8 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 #### Get claims
 
 ```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\Enums\ClaimItemStatus;
+use Boolxy\Trendyol\Trendyol;
+use Boolxy\Trendyol\Enums\ClaimItemStatus;
 
 $result = Trendyol::create($user, $pass, $supplier_id)
     ->claimService()
@@ -299,7 +299,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 #### Approve claim line items
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $result = Trendyol::create($user, $pass, $supplier_id)
     ->claimService()
@@ -312,7 +312,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 #### Create claim issue
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $result = Trendyol::create($user, $pass, $supplier_id)
     ->claimService()
@@ -328,7 +328,7 @@ $result = Trendyol::create($user, $pass, $supplier_id)
 #### Get claims issue reasons
 
 ```php
-use BoolXY\Trendyol\Trendyol;
+use Boolxy\Trendyol\Trendyol;
 
 $results = Trendyol::create($user, $pass, $supplierId)
     ->claimService()
@@ -340,8 +340,8 @@ $results = Trendyol::create($user, $pass, $supplierId)
 #### Get settlements
 
 ```php
-use BoolXY\Trendyol\Trendyol;
-use BoolXY\Trendyol\Enums\SettlementDateType;
+use Boolxy\Trendyol\Trendyol;
+use Boolxy\Trendyol\Enums\SettlementDateType;
 
 $results = Trendyol::create($user, $pass, $supplierId)
     ->settlementService()

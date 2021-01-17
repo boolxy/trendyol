@@ -1,6 +1,6 @@
 <?php
 
-namespace BoolXY\Trendyol\Abstracts;
+namespace Boolxy\Trendyol\Abstracts;
 
 class AbstractEnum
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace BoolXY\Trendyol\Builders;
+namespace Boolxy\Trendyol\Builders;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
-use BoolXY\Trendyol\Enums\ShipmentStatus;
-use BoolXY\Trendyol\Interfaces\IRequestBuilder;
-use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\OrderService\UpdatePackage;
+use Boolxy\Trendyol\Abstracts\AbstractRequestBuilder;
+use Boolxy\Trendyol\Enums\ShipmentStatus;
+use Boolxy\Trendyol\Interfaces\IRequestBuilder;
+use Boolxy\Trendyol\RequestManager;
+use Boolxy\Trendyol\Requests\OrderService\UpdatePackage;
 
 class UpdatePackageRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {

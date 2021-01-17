@@ -1,13 +1,13 @@
 <?php
 
-namespace BoolXY\Trendyol\Services;
+namespace Boolxy\Trendyol\Services;
 
-use BoolXY\Trendyol\Abstracts\AbstractService;
-use BoolXY\Trendyol\Builders\ApproveClaimLineItemsRequestBuilder;
-use BoolXY\Trendyol\Builders\CreateClaimIssueRequestBuilder;
-use BoolXY\Trendyol\Builders\GetClaimsRequestBuilder;
-use BoolXY\Trendyol\Interfaces\IService;
-use BoolXY\Trendyol\Requests\ClaimService\GetClaimsIssueReasons;
+use Boolxy\Trendyol\Abstracts\AbstractService;
+use Boolxy\Trendyol\Builders\ApproveClaimLineItemsRequestBuilder;
+use Boolxy\Trendyol\Builders\CreateClaimIssueRequestBuilder;
+use Boolxy\Trendyol\Builders\GetClaimsRequestBuilder;
+use Boolxy\Trendyol\Interfaces\IService;
+use Boolxy\Trendyol\Requests\ClaimService\GetClaimsIssueReasons;
 
 class ClaimService extends AbstractService implements IService
 {

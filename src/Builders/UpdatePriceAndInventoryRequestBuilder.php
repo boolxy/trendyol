@@ -1,11 +1,11 @@
 <?php
 
-namespace BoolXY\Trendyol\Builders;
+namespace Boolxy\Trendyol\Builders;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequestBuilder;
-use BoolXY\Trendyol\Interfaces\IRequestBuilder;
-use BoolXY\Trendyol\RequestManager;
-use BoolXY\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
+use Boolxy\Trendyol\Abstracts\AbstractRequestBuilder;
+use Boolxy\Trendyol\Interfaces\IRequestBuilder;
+use Boolxy\Trendyol\RequestManager;
+use Boolxy\Trendyol\Requests\ProductService\UpdatePriceAndInventory;
 
 class UpdatePriceAndInventoryRequestBuilder extends AbstractRequestBuilder implements IRequestBuilder
 {

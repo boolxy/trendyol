@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Requests\SettlementService;
+namespace Boolxy\Trendyol\Requests\SettlementService;
 
-use BoolXY\Trendyol\Abstracts\AbstractRequest;
-use BoolXY\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\Abstracts\AbstractRequest;
+use Boolxy\Trendyol\Interfaces\IRequest;
 
 class GetSettlements extends AbstractRequest implements IRequest
 {

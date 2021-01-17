@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Abstracts;
+namespace Boolxy\Trendyol\Abstracts;
 
-use BoolXY\Trendyol\Interfaces\IModel;
-use BoolXY\Trendyol\Traits\TJsonable;
+use Boolxy\Trendyol\Interfaces\IModel;
+use Boolxy\Trendyol\Traits\TJsonable;
 
 abstract class AbstractModel implements IModel
 {

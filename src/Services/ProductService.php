@@ -1,20 +1,20 @@
 <?php
 
-namespace BoolXY\Trendyol\Services;
+namespace Boolxy\Trendyol\Services;
 
-use BoolXY\Trendyol\Abstracts\AbstractService;
-use BoolXY\Trendyol\Builders\CreateProductsRequestBuilder;
-use BoolXY\Trendyol\Builders\GetProductsRequestBuilder;
-use BoolXY\Trendyol\Builders\UpdatePriceAndInventoryRequestBuilder;
-use BoolXY\Trendyol\Interfaces\IService;
-use BoolXY\Trendyol\Requests\ProductService\GetAttributes;
-use BoolXY\Trendyol\Requests\ProductService\GetBatchRequestResult;
-use BoolXY\Trendyol\Requests\ProductService\GetBrands;
-use BoolXY\Trendyol\Requests\ProductService\GetBrandsByName;
-use BoolXY\Trendyol\Requests\ProductService\GetCategories;
-use BoolXY\Trendyol\Requests\ProductService\GetProducts;
-use BoolXY\Trendyol\Requests\ProductService\GetProviders;
-use BoolXY\Trendyol\Requests\ProductService\GetSuppliersAddresses;
+use Boolxy\Trendyol\Abstracts\AbstractService;
+use Boolxy\Trendyol\Builders\CreateProductsRequestBuilder;
+use Boolxy\Trendyol\Builders\GetProductsRequestBuilder;
+use Boolxy\Trendyol\Builders\UpdatePriceAndInventoryRequestBuilder;
+use Boolxy\Trendyol\Interfaces\IService;
+use Boolxy\Trendyol\Requests\ProductService\GetAttributes;
+use Boolxy\Trendyol\Requests\ProductService\GetBatchRequestResult;
+use Boolxy\Trendyol\Requests\ProductService\GetBrands;
+use Boolxy\Trendyol\Requests\ProductService\GetBrandsByName;
+use Boolxy\Trendyol\Requests\ProductService\GetCategories;
+use Boolxy\Trendyol\Requests\ProductService\GetProducts;
+use Boolxy\Trendyol\Requests\ProductService\GetProviders;
+use Boolxy\Trendyol\Requests\ProductService\GetSuppliersAddresses;
 
 class ProductService extends AbstractService implements IService
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace BoolXY\Trendyol\Tests;
+namespace Boolxy\Trendyol\Tests;
 
-use BoolXY\Trendyol\Enums\ShipmentStatus;
-use BoolXY\Trendyol\Requests\OrderService\SendInvoiceLink;
-use BoolXY\Trendyol\Requests\OrderService\UpdateTrackingNumber;
+use Boolxy\Trendyol\Enums\ShipmentStatus;
+use Boolxy\Trendyol\Requests\OrderService\SendInvoiceLink;
+use Boolxy\Trendyol\Requests\OrderService\UpdateTrackingNumber;
 
 class OrderServiceTest extends TestCase
 {

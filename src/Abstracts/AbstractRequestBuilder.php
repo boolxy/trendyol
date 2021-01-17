@@ -1,9 +1,9 @@
 <?php
 
-namespace BoolXY\Trendyol\Abstracts;
+namespace Boolxy\Trendyol\Abstracts;
 
-use BoolXY\Trendyol\Interfaces\IRequest;
-use BoolXY\Trendyol\RequestManager;
+use Boolxy\Trendyol\Interfaces\IRequest;
+use Boolxy\Trendyol\RequestManager;
 
 class AbstractRequestBuilder
 {
