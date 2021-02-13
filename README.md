@@ -119,12 +119,12 @@ with filters:
 
 ```php
 use Boolxy\Trendyol\Trendyol;                          
-use Boolxy\Trendyol\Enums\DataQueryType;
+use Boolxy\Trendyol\Enums\DateQueryType;
 
 $results = Trendyol::create($user, $pass, $supplier_id)
     ->productService()
     ->gettingProducts()
-    ->dataQueryType(DataQueryType::create(DataQueryType::LAST_MODIFIED_DATE))
+    ->dateQueryType(DateQueryType::create(DateQueryType::LAST_MODIFIED_DATE))
     ->barcode('XXX')
     ->page(1)
     ->size(50)

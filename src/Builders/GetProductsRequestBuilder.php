@@ -3,7 +3,7 @@
 namespace Boolxy\Trendyol\Builders;
 
 use Boolxy\Trendyol\Abstracts\AbstractRequestBuilder;
-use Boolxy\Trendyol\Enums\DataQueryType;
+use Boolxy\Trendyol\Enums\DateQueryType;
 use Boolxy\Trendyol\Interfaces\IRequestBuilder;
 use Boolxy\Trendyol\RequestManager;
 use Boolxy\Trendyol\Requests\ProductService\GetProducts;
@@ -85,13 +85,13 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
     }
 
     /**
-     * @param DataQueryType $dataQueryType
+     * @param DateQueryType $dateQueryType
      *
      * @return $this
      */
-    public function dataQueryType(DataQueryType $dataQueryType): self
+    public function dateQueryType(DateQueryType $dateQueryType): self
     {
-        $this->request->addQueryParam('dateQueryType', (string) $dataQueryType);
+        $this->request->addQueryParam('dateQueryType', (string) $dateQueryType);
 
         return $this;
     }
