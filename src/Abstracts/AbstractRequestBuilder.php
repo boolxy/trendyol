@@ -5,7 +5,7 @@ namespace Boolxy\Trendyol\Abstracts;
 use Boolxy\Trendyol\Interfaces\IRequest;
 use Boolxy\Trendyol\RequestManager;
 
-class AbstractRequestBuilder
+abstract class AbstractRequestBuilder
 {
     protected IRequest $request;
 

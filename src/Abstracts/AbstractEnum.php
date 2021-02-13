@@ -2,7 +2,7 @@
 
 namespace Boolxy\Trendyol\Abstracts;
 
-class AbstractEnum
+abstract class AbstractEnum
 {
     protected string $value;
 
