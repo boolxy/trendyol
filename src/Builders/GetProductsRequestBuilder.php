@@ -31,7 +31,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function approved(bool $is): self
     {
-        $this->request->addData('approved', $is ? 'true' : 'false');
+        $this->request->addQueryParam('approved', $is ? 'true' : 'false');
 
         return $this;
     }
@@ -43,7 +43,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function barcode(string $barcode): self
     {
-        $this->request->addData('barcode', $barcode);
+        $this->request->addQueryParam('barcode', $barcode);
 
         return $this;
     }
@@ -53,9 +53,9 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      *
      * @return $this
      */
-    public function startDate(int $timestamp): self
+    public function startDate(int $timestamp = null): self
     {
-        $this->request->addData('startDate', $timestamp);
+        $this->request->addQueryParam('startDate', $timestamp);
 
         return $this;
     }
@@ -65,9 +65,9 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      *
      * @return $this
      */
-    public function endDate(int $timestamp): self
+    public function endDate(int $timestamp = null): self
     {
-        $this->request->addData('endDate', $timestamp);
+        $this->request->addQueryParam('endDate', $timestamp);
 
         return $this;
     }
@@ -79,7 +79,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function page(int $pageNumber): self
     {
-        $this->request->addData('page', $pageNumber);
+        $this->request->addQueryParam('page', $pageNumber);
 
         return $this;
     }
@@ -91,7 +91,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function dataQueryType(DataQueryType $dataQueryType): self
     {
-        $this->request->addData('dataQueryType', (string) $dataQueryType);
+        $this->request->addQueryParam('dateQueryType', (string) $dataQueryType);
 
         return $this;
     }
@@ -103,7 +103,7 @@ class GetProductsRequestBuilder extends AbstractRequestBuilder implements IReque
      */
     public function size(int $size): self
     {
-        $this->request->addData('size', $size);
+        $this->request->addQueryParam('size', $size);
 
         return $this;
     }
