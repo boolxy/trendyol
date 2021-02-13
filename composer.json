@@ -37,8 +37,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --colors=always",
-        "check": "phpcs -p --standard=PSR2 --colors --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 src tests",
-        "fix": "phpcbf -p --standard=PSR2 --colors --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 src tests"
+        "test": "vendor/bin/phpunit",
+        "check": "vendor/bin/phpcs -p --standard=PSR2 --colors --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 src tests",
+        "fix": "vendor/bin/phpcbf -p --standard=PSR2 --colors --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 src tests"
     }
 }
