@@ -12,7 +12,7 @@
         "ext-json": "*",
         "php": "^7.4 || ^8",
         "guzzlehttp/guzzle": "7.2",
-        "illuminate/support": "7.2"
+        "illuminate/support": "8.2"
     },
     "require-dev": {
         "ext-mbstring": "*",
